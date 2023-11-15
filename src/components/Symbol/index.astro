@@ -1,0 +1,35 @@
+---
+import "./index.css";
+
+type Props = {
+	color?: string;
+	fill?: string;
+	height?: number;
+	width?: number;
+};
+
+const {
+	color = "var(--sb-symbol-foreground, #ff6a00)",
+	fill = "var(--sb-symbol-background, #fafafa)",
+	height = 50,
+	width = 50,
+} = Astro.props;
+---
+
+<svg
+	class="sb-symbol"
+	{height}
+	version="1.1"
+	viewBox="0 0 650 650"
+	{width}
+	xml:space="preserve"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<rect fill={fill} height="650" width="650" x="0" y="0"></rect>
+	<path d="M 100 550 L 139.7 475 L 510.3 475 L 550 550 Z" fill="#a9a9b1"></path>
+	<path d="M 152.9 450 L 192.6 375 L 457.4 375 L 497.1 450 Z" fill="#a9a9b1"
+	></path>
+	<path d="M 205.9 350 L 245.6 275 L 404.4 275 L 444.1 350 Z" fill="#a9a9b1"
+	></path>
+	<path d="M 258.8 250 L 325 125 L 391.2 250 Z" fill={color}></path>
+</svg>

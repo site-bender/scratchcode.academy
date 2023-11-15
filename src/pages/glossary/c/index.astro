@@ -1,0 +1,422 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ellipsis: ellip, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryc",
+			firstCarbon: 0.012,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/GZUwLJyBKuVMXg8LSsS28saB",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-c/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		C is for codewright: the glossary page for terms beginning with
+		C for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"carbon footprint",
+		"CSS",
+		"client",
+		"client-server",
+		"client-side",
+		"cloud services",
+		"client state",
+		"code completion",
+		"codewright",
+		"cognitive footprint",
+		"cognitive load",
+		"cohesion",
+		"commodity code",
+		"compile time",
+		"component library",
+		"conspicuous consumption",
+		"content security policy",
+		"cookie",
+		"coupling",
+	],
+	label: "C is for codewright",
+	next: "/glossary/d",
+	pageTitle: "C is for codewright ~ ScratchCode glossary",
+	prev: "/glossary/b",
+	title: "C is for codewright",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="carbon-footprint"><dfn>carbon footprint</dfn></dt><dd>
+				The <strong>carbon footprint</strong> (or greenhouse gas footprint)
+				serves as an indicator to compare the total amount of greenhouse gases
+				emitted from an activity, product, company or country {ellip} For a
+				product, its carbon footprint includes the emissions for the entire life
+				cycle from the production along the supply chain to its final
+				consumption and disposal.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Carbon_footprint"
+						rel="external">Carbon footprint</a
+					></cite
+				>
+			</dd>
+			<dt id="css">
+				<dfn>Cascading Style Sheets</dfn> (<abbr title="Cascading Style Sheets"
+					>CSS</abbr
+				>)
+			</dt><dd>
+				<strong>CSS</strong> (Cascading Style Sheets) is a <a
+					href="/glossary/d#declarative-language"
+					rel="glossary">declarative language</a
+				> that controls how webpages look in the <a
+					href="/glossary/b#browser"
+					rel="glossary">browser</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/CSS"
+						rel="external">CSS</a
+					></cite
+				>
+			</dd>
+			<dt id="client"><dfn>client</dfn></dt><dd>
+				In computing, a <strong>client</strong> is a piece of computer hardware
+				or software that accesses a service made available by a <a
+					href="/glossary/s#server"
+					rel="glossary">server</a
+				>, as part of the <a href="/glossary/c#client-server" rel="glossary"
+					>client-server model</a
+				> of
+				<a href="/glossary/n#network" rel="glossary">computer networks</a>.
+			</dd><dd>
+				The server is often (but not always) on another computer system, in
+				which case the client accesses the service by way of a network.
+			</dd><dd>
+				Note: For our purposes, the client or <a
+					href="/glossary/u#user-agent"
+					rel="glossary">user agent</a
+				>
+				 is almost always a web <a href="/glossary/b#browser" rel="glossary"
+					>browser</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Client_(computing)"
+						rel="external">Client (computing)</a
+					></cite
+				>
+			</dd>
+			<dt id="client-server"><dfn>client-server</dfn></dt><dd>
+				The <strong>client-server model</strong> is a distributed application
+				structure that partitions tasks or workloads between the providers of a
+				resource or service, called <a href="/glossary/s#server" rel="glossary"
+					>servers</a
+				>, and service requesters, called <a
+					href="/glossary/c#client"
+					rel="glossary">clients</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model"
+						rel="external">Client-server model</a
+					></cite
+				>
+			</dd>
+			<dt id="client-side"><dfn>client-side</dfn></dt><dd>
+				<strong>Client-side</strong> refers to operations that are performed by
+				the <strong>client</strong> in a
+				<a href="/glossary/c#client-server" rel="glossary">client-server</a>
+				 relationship in a <a href="/glossary/n#network" rel="glossary"
+					>computer network</a
+				>. For our purposes here, this generally refers to a web <a
+					href="/glossary/b#browser"
+					rel="glossary">browser</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Client-side"
+						rel="external">Client-side</a
+					></cite
+				>
+			</dd>
+			<dt id="cloud-services"><dfn>cloud services</dfn></dt><dd>
+				<strong>Cloud computing</strong> is the on-demand availability of
+				computer system resources, especially data storage (cloud storage) and
+				computing power, without direct active management by the user.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Cloud_computing"
+						rel="external">Cloud computing</a
+					></cite
+				>
+			</dd>
+			<dt id="client-state"><dfn>client state</dfn></dt><dd>
+				<strong>Client state</strong> is data that is changeable and is stored
+				and managed on the
+				<a href="/glossary/c#client" rel="glossary">client</a>, as opposed to
+				transient data that is not stored (persisted) and <a
+					href="/glossary/s#server-state"
+					rel="glossary">server state</a
+				> which is maintained on the server (browser).
+			</dd>
+			<dt id="code-completion"><dfn>code completion</dfn></dt><dd>
+				Intelligent <strong>code completion</strong> is a context-aware code
+				completion feature in some programming environments that speeds up the
+				process of coding applications by reducing typos and other common
+				mistakes. Attempts at this are usually done through auto-completion
+				popups while typing, querying parameters of functions, and query hints
+				related to syntax errors.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Intelligent_code_completion"
+						rel="external">Intelligent code completion</a
+					></cite
+				>
+			</dd>
+			<dt id="codewright"><dfn>codewright</dfn></dt><dd>
+				A <strong>codewright</strong> is a coder (programmer/developer) who is a
+				skilled craftsperson. Term coined by us!
+			</dd>
+			<dt id="cognitive-footprint"><dfn>cognitive footprint</dfn></dt><dd>
+				<strong>Cognitive footprint</strong> is the sum of <a
+					href="/glossary/c#cognitive-load"
+					rel="glossary">cognitive load</a
+				> over the lifetime of a process, evolution, service, or product. It
+				includes the cognitive load involved in researching, learning,
+				operating, maintaining, and retiring the service or product. And the
+				effort involved in finding and maintaining the skill sets needed.
+			</dd><dd>
+				Cognitive footprint is a large part of <a
+					href="/glossary/t#tco"
+					rel="glossary">total cost of ownership</a
+				>, although it is often not well understood. If two products, service,
+				processes, or whatever solve the same problem, then choose the one with
+				the smallest cognitive footprint.
+			</dd>
+			<dt id="cognitive-load"><dfn>cognitive load</dfn></dt><dd>
+				In cognitive psychology, <strong>cognitive load</strong> refers to the
+				amount of working memory resources used.
+			</dd><dd>
+				According to work conducted in the field of instructional design and
+				pedagogy, broadly, there are three types of cognitive load:
+			</dd><dd>
+				<ul>
+					<li>
+						<strong>intrinsic cognitive load</strong> is the effort associated
+						with a specific topic
+					</li>
+					<li>
+						<strong>extraneous cognitive load</strong> refers to the way
+						information or tasks are presented to a learner
+					</li>
+					<li>
+						<strong>germane cognitive load</strong> refers to the work put into
+						creating a permanent store of knowledge (a schema)
+					</li>
+				</ul>
+			</dd><dd>
+				However, over the years, the additivity of these types of cognitive load
+				has been investigated and questioned. Now it is believed that they
+				circularly influence each other.
+			</dd><dd>
+				See also <a href="/glossary/c#cognitive-footprint" rel="glossary"
+					>cognitive footprint</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Cognitive_load"
+						rel="external">Cognitive load</a
+					></cite
+				>
+			</dd>
+			<dt id="cohesion"><dfn>cohesion</dfn></dt><dd>
+				In computer programming, <strong>cohesion</strong> refers to the degree
+				to which the elements inside a module belong together.
+			</dd><dd>
+				See also <a href="/glossary/c#coupling" rel="glossary">coupling</a>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"
+						rel="external">Cohesion (computer science)</a
+					></cite
+				>
+			</dd>
+			<dt id="commodity-code"><dfn>commodity code</dfn></dt><dd>
+				<strong>Commodity code</strong> is code mass-produced code, often
+				assembly-line style. Any developer who has worked in enterprise knows
+				what we are talking about. Commodity code is often quick and dirty.
+				<a href="/glossary/t#technical-debt" rel="glossary">Tech debt</a> is
+				viewed as a cost of doing business.
+			</dd><dd>
+				Most code is commodity code. The alternative is <a
+					href="/glossary/b#bespoke-code"
+					rel="glossary">bespoke code</a
+				>.
+			</dd>
+
+			<dt id="compile-time"><dfn>compile time</dfn></dt><dd>
+				In computer science, <strong>compile time</strong> (or compile-time)
+				describes the time window during which a language{apos}s statements are
+				converted into binary instructions for the processor to execute.
+			</dd><dd>
+				The term is used as an adjective to describe concepts related to the
+				context of program compilation, as opposed to concepts related to the
+				context of program execution (runtime).
+			</dd><dd>
+				For example, compile-time requirements are programming language
+				requirements that must be met by source code <em>before</em> compilation
+				and compile-time properties are properties of the program that can be
+				reasoned about <em>during</em> compilation.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Compile_time"
+						rel="external">Compile time</a
+					></cite
+				>
+			</dd>
+
+			<dt id="component-library"><dfn>component library</dfn></dt><dd>
+				A <strong>component library</strong> is a set of re-usable software <a
+					href="/glossary/u#ui"
+					rel="glossary">UI</a
+				>
+				 components (widgets). Typically they can be configured to work in
+				different ways and {ldquo}skinned{rdquo} to fit with different design
+				systems.
+			</dd>
+			<dt id="conspicuous-consumption">
+				<dfn>conspicuous consumption</dfn>
+			</dt><dd>
+				In sociology and in economics, the term <strong
+					>conspicuous consumption</strong
+				> describes and explains the consumer practice of buying and using goods
+				of a higher quality, price, or in greater quantity than practical.
+			</dd><dd>
+				To the conspicuous consumer, the public display of discretionary income
+				is an economic means of either attaining or of maintaining a given
+				social status.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Conspicuous_consumption"
+						rel="external">Conspicuous consumption</a
+					></cite
+				>
+			</dd>
+			<dt id="consumerism"><dfn>consumerism</dfn></dt><dd>
+				<strong>Consumerism</strong> is a social and economic order in which the
+				goals of many individuals include the acquisition of goods and services
+				beyond those that are necessary for survival or for traditional displays
+				of status.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Consumerism"
+						rel="external">Consumerism</a
+					></cite
+				>
+			</dd>
+			<dt id="csp">
+				<dfn>Content Security Policy</dfn> (<abbr
+					title="Content Security Policy">CSP</abbr
+				>)
+			</dt><dd>
+				<strong>Content Security Policy</strong> (CSP) is a mechanism to help
+				prevent websites from inadvertently executing malicious content. A
+				website specifies a CSP using an
+				<a href="/glossary/h#http" rel="glossary">HTTP</a> header sent from the
+				server.
+			</dd><dd>
+				The CSP is mostly concerned with specifying legitimate sources of
+				various types of content, such as scripts or embedded plugins. For
+				example, a website can use it to specify that the browser should only
+				execute JavaScript served from the website itself, and not from any
+				other sources.
+			</dd><dd>
+				A CSP can also instruct the browser to disallow potentially unsafe
+				practices.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy"
+						rel="glossary">Content Security Policy</a
+					></cite
+				>
+			</dd>
+			<dt id="cookie"><dfn>cookie</dfn></dt><dd>
+				<a href="/glossary/h#http" rel="glossary">HTTP</a>
+				 cookies (also called web cookies, Internet cookies, browser cookies, or
+				simply <strong>cookies</strong>) are small blocks of data created by a
+				web server while a user is browsing a website and placed on the user{
+					apos
+				}s computer or other device by the user{apos}s web browser. Cookies are
+				placed on the device used to access a website, and more than one cookie
+				may be placed on a user{apos}s device during a session.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/HTTP_cookie"
+						rel="external">HTTP cookie</a
+					></cite
+				>
+			</dd>
+			<dt id="coupling"><dfn>coupling</dfn></dt><dd>
+				In software engineering, <strong>coupling</strong> is the degree of
+				interdependence between software modules; a measure of how closely
+				connected two routines or modules are; the strength of the relationships
+				between modules.
+			</dd><dd>
+				Coupling is usually contrasted with <a
+					href="/glossary/c#cohesion"
+					rel="glossary">cohesion</a
+				>. Low coupling often correlates with high cohesion, and vice versa. Low
+				coupling is often thought to be a sign of a well-structured computer
+				system and a good design, and when combined with high cohesion, supports
+				the general goals of high readability and maintainability.
+			</dd><dd>
+				See also <a href="/glossary/l#loose-coupling" rel="glossary"
+					>loose coupling</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)"
+						rel="external">Coupling (computer programming)</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

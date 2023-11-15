@@ -1,0 +1,110 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfeedbackmissing-feedback",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/FnIsdG7GaeCg7yywJjztKUdD",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-feedback-missing-feedback/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			We were unable to process your feedback form submission
+			because the feedback field was empty. Please provide some
+			feedback and resubmit the form. Thank you!
+		`),
+		version,
+	}),
+	label: "Feedback form missing feedback",
+	next: "/feedback",
+	pageTitle: "Feedback form missing feedback  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Feedback form", "Missing feedback"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Uh, oh</h1>
+		</header>
+		<p><mark>Your feedback has gone missing.</mark></p>
+		<p>
+			We got your form submission. But we were <strong
+				>unable to find any feedback.</strong
+			> No bug, no suggestion, no feature request, etc. We need to know what you
+			are reporting so we can fix it or consider implementing it.
+		</p>
+		<p>
+			Our stubborn server refused to accept a feedback report without feedback. <strong
+				>We did not receive your submission.</strong
+			>
+		</p>
+		<p>
+			This is an automated process: <strong
+				>no human has seen your submission yet.</strong
+			>
+		</p>
+		<Figure caption="Oops.">
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/missing-feedback.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			Please use your browser{apos}s <strong>back button</strong> to return to
+			the <strong>feedback form.</strong> Then add your feedback and re-submit
+			the form.
+		</p>
+		<p>
+			Or send an email to <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject={getSubject(metadata.title)}
+			/> if you believe that you received this message in error.
+		</p>
+		<p>
+			If you do email us, then please put <strong
+				>{getSubject(metadata.title)}</strong
+			> in the subject line.
+		</p>
+		<p>
+			We do want to hear from any and all interested parties, so we hope we can
+			get this straightened out. If we have somehow screwed this up or there is
+			something we could do better, then please do let us know.
+		</p>
+		<p>
+			We want to make everything all better. <strong
+				>Thanks much for your help.</strong
+			>
+		</p>
+	</Article>
+</Layout>

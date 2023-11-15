@@ -1,0 +1,85 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academysubscribesuccess",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/JREYUarLqMem9kvQvKCcbEAi",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-subscribe-success/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Success! We have received your request to be notified
+			whenever the ScratchCode site is updated. We have sent
+			a confirmation email to you. Be sure to confirm.
+		`),
+		version,
+	}),
+	label: "Get notified form success",
+	pageTitle: "Get notified form success  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Get notified form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Success!</h1>
+		</header>
+		<p>
+			Our server sent your request that we <strong
+				>notify you of changes to the craft code site</strong
+			>
+			 to us here at ScratchCode. You should receive a <strong
+				>confirmation email</strong
+			>
+			 shortly.
+		</p>
+		<p>
+			Please click on the <strong>confirm</strong> button in the <mark
+				>confirmation email</mark
+			> when you receive it. You must do so to complete your subscription to
+			site updates. Annoying but necessary in this world of trolls, spam,
+			phishing attacks, and worse.
+		</p>
+		<Figure caption="Everyone loves connection.">
+			<img
+				alt=""
+				height="360"
+				src="/images/iconic/make-intentions-clear.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			Thanks much for your interest! We are growing craft code into a serious
+			and noteworthy, we hope, community of craft coders. Consider <a
+				href="/join">joining us</a
+			> if you haven{apos}t already.
+		</p>
+	</Article>
+</Layout>

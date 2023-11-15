@@ -1,0 +1,107 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryr",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/Qyh0rFjsDwZEV44d5xuotTIV",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-r/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		R is for real world: the glossary page for terms beginning with
+		R for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "real-world learning", "ROI"],
+	label: "R is for real world",
+	next: "/glossary/s",
+	pageTitle: "R is for real world ~ ScratchCode glossary",
+	prev: "/glossary/q",
+	title: "R is for real world",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="real-world"><dfn>real-world learning</dfn></dt><dd>
+				<strong>Real-world learning</strong> is learning using real world tools,
+				practices, processes, etc. Ideally, for a real-world client on a real
+				project.
+			</dd><dd>
+				Real-world learning is contrasted with most current learning which
+				involves working with models, pretend clients, and throwaway, partial, {
+					ldquo
+				}sandboxed{rdquo}
+				 code removed from a real-world context.
+			</dd>
+
+			<dt id="responsive">
+				<dfn>responsive design</dfn> (<abbr title="Responsive Web Design"
+					>RWD</abbr
+				>)
+			</dt><dd>
+				<strong>Responsive web design</strong> (RWD) or responsive design is an
+				approach to web design that aims to make web pages render well on a
+				variety of devices and window or screen sizes from minimum to maximum
+				display size to ensure usability and satisfaction.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Responsive_web_design"
+						rel="external">Responsive web design</a
+					></cite
+				>
+			</dd>
+
+			<dt id="roi">
+				<dfn>Return on Investment</dfn> (<abbr title="Return On Investment"
+					>ROI</abbr
+				>)
+			</dt><dd>
+				<strong>Return on investment</strong> (ROI) or return on costs (ROC) is
+				a ratio between net income (over a period) and investment (costs
+				resulting from an investment of some resources at a point in time). A
+				high ROI means the investment's gains compare favorably to its cost. As
+				a performance measure, ROI is used to evaluate the efficiency of an
+				investment or to compare the efficiencies of several different
+				investments.
+			</dd><dd>
+				As in financial investing, ROI in <a
+					href="/glossary/w#web-dev"
+					rel="glossary">web development</a
+				> is the return you see from your investment of time, money, and effort
+				to build a website or web application.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Return_on_investment"
+						rel="external">Return on investment</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

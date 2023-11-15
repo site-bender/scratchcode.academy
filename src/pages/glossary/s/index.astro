@@ -1,0 +1,383 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossarys",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/MiezJp53USJIhkAcQqNK9EWe",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-s/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		S is for sustainable: the glossary page for terms beginning with
+		S for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"SEO",
+		"semantic HTML",
+		"server state",
+		"server-side",
+		"server",
+		"serverless computing",
+		"shim",
+		"shoulders of giants",
+		"social media",
+		"solution space",
+		"SOTA",
+		"SPA",
+		"spaghetti code",
+		"static typing",
+		"sunk cost fallacy",
+		"sustainable web development",
+	],
+	label: "S is for sustainable",
+	next: "/glossary/t",
+	pageTitle: "S is for sustainable ~ ScratchCode glossary",
+	prev: "/glossary/r",
+	title: "S is for sustainable",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="seo">
+				<dfn>Search Engine Optimization</dfn> (<abbr
+					title="search engine optimization">SEO</abbr
+				>)
+			</dt><dd>
+				<strong>SEO</strong> (Search Engine Optimization) is the process of
+				making a website more visible in search results and improving search
+				rankings.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/SEO"
+						rel="external">SEO</a
+					></cite
+				>
+			</dd>
+			<dt id="semantic-html"><dfn>semantic HTML</dfn></dt><dd>
+				<strong>Semantic HTML</strong> is the use of <a
+					href="/glossary/h#html"
+					rel="glossary">HTML</a
+				> markup to reinforce the semantics, or meaning, of the information in
+				<a href="/glossary/w#web-app" rel="glossary"
+					>web pages and web applications</a
+				>
+				 rather than merely to define its presentation or look. Semantic HTML is
+				processed by traditional <a href="/glossary/b#browser" rel="glossary"
+					>web browsers</a
+				> as well as by many other user agents. <a
+					href="/glossary/c#css"
+					rel="glossary">CSS</a
+				> is used to suggest its presentation to human users.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Semantic_HTML"
+						rel="external">Semantic HTML</a
+					></cite
+				>
+			</dd>
+			<dt id="server"><dfn>server</dfn></dt><dd>
+				In computing, a <strong>server</strong> is a piece of computer hardware
+				or software (computer program) that provides functionality for other
+				programs or devices, called
+				<a href="/glossary/c#client" rel="glossary">clients</a>. This
+				architecture is called the <a
+					href="/glossary/c#client-server"
+					rel="glossary">client-server model</a
+				>.
+			</dd><dd>
+				Note: here we are primarily concerned with web (<a
+					href="/glossary/h#http"
+					rel="glossary">HTTP</a
+				>) servers. These are software programs that serve our web pages. We can
+				run one on our local computer or access one on a remote machine, usually
+				across a network.
+			</dd><dd>
+				The machine on which one or more server <em>programs</em> run is also
+				often called a {ldquo}server{rdquo}. This leads to much confusion for
+				newbies. When we say {ldquo}server{rdquo} here, we most often mean the
+				software program, not the machine.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Server_(computing)"
+						rel="external">Server (computing)</a
+					></cite
+				>
+			</dd>
+			<dt id="server-state"><dfn>server state</dfn></dt><dd>
+				<strong>Server state</strong> is data that is changeable and is stored
+				and managed on the
+				<a href="/glossary/s#server" rel="glossary">server</a>, as opposed to
+				transient data that is not stored (persisted) and <a
+					href="/glossary/c#client-state"
+					rel="glossary">client state</a
+				> which is maintained on the client (browser).
+			</dd>
+			<dt id="server-side"><dfn>server-side</dfn></dt><dd>
+				<strong>Server side</strong> refers to operations that are performed by
+				the <strong>server</strong> in a
+				<a href="/glossary/c#client-server" rel="glossary">client-server</a>
+				 relationship in a <a href="/glossary/n#network" rel="glossary"
+					>computer network</a
+				>.
+			</dd>
+			<dt id="serverless"><dfn>serverless computing</dfn></dt><dd>
+				<strong>Serverless computing</strong> is a <a
+					href="/glossary/c#cloud-services"
+					rel="glossary">cloud computing</a
+				>
+				 execution model in which the cloud provider allocates machine resources
+				on demand, taking care of the <a
+					href="/glossary/s#server"
+					rel="glossary">servers</a
+				> on behalf of their customers.
+			</dd><dd>
+				{ldquo}Serverless{rdquo} is a misnomer in the sense that servers are
+				still used by cloud service providers to execute code for developers.
+				However, developers of serverless applications are not concerned with
+				capacity planning, configuration, management, maintenance, fault
+				tolerance, or scaling of containers, VMs, or physical servers.
+			</dd><dd>
+				Serverless computing does not hold resources in volatile memory;
+				computing is rather done in short bursts with the results persisted to
+				storage.
+			</dd><dd>
+				When an app is not in use, there are no computing resources allocated to
+				the app. Pricing is based on the actual amount of resources consumed by
+				an application. It can be a form of utility computing.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Serverless_computing"
+						rel="external">Serverless computing</a
+					></cite
+				>
+			</dd>
+			<dt id="shim"><dfn>shim</dfn></dt><dd>
+				In computer programming, a <strong>shim</strong> is a library that
+				transparently intercepts
+				<a href="/glossary/a#api" rel="glossary">API</a> calls and changes the
+				arguments passed, handles the operation itself or redirects the
+				operation elsewhere. Shims can be used to support an old API in a newer
+				environment, or a new API in an older environment. Shims can also be
+				used for running programs on different software platforms than they were
+				developed for.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Shim_(computing)"
+						rel="external"
+						>Shim (computing)
+					</a></cite
+				>
+			</dd>
+			<dt id="single-page-app">
+				<dfn>Single-Page Application</dfn> (<abbr title="single-page app"
+					>SPA</abbr
+				>)
+			</dt><dd>
+				An <strong>SPA</strong> (Single-page application) is a web app
+				implementation that loads only a single web document, and then updates
+				the body content of that single document via JavaScript APIs such as
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest"
+					rel="external">XMLHttpRequest</a
+				> and
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/API/fetch"
+					rel="external">fetch</a
+				> when different content is to be shown.
+			</dd><dd>
+				This therefore allows users to use websites without loading whole new
+				pages from the server, which can result in performance gains and a more
+				dynamic experience, with some tradeoff disadvantages such as
+				<a href="/glossary/s#seo" rel="glossary">SEO</a>, more effort required
+				to maintain state, implement navigation, and do meaningful performance
+				monitoring.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/SPA"
+						rel="external">SPA (Single-page application)</a
+					></cite
+				>
+			</dd>
+			<dt id="social-media"><dfn>social media</dfn></dt><dd>
+				Social media are interactive technologies that facilitate the creation
+				and sharing of content, ideas, interests, and other forms of expression
+				through
+				<a href="/glossary/v#virtual-communities" rel="glossary"
+					>virtual communities</a
+				>
+				 and networks.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Social_media"
+						rel="external">Social media</a
+					></cite
+				>
+			</dd>
+			<dt id="solution-space"><dfn>solution space</dfn></dt><dd>
+				The <strong>solution space</strong> constitutes the world of products,
+				services, and policies that have been produced to address a particular
+				problem.
+			</dd><dd>
+				See also <a href="/glossary/p#problem-space" rel="glossary"
+					>problem space</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://writingcommons.org/section/rhetoric/rhetorical-situation/occasion-exigency/problem-space/"
+						rel="external"
+						>Problem Space, Solution Space
+					</a></cite
+				>
+			</dd>
+			<dt id="spaghetti-code"><dfn>spaghetti code</dfn></dt><dd>
+				<strong>Spaghetti code</strong> is a pejorative phrase for unstructured
+				and difficult-to-maintain source code. Spaghetti code can be caused by
+				several factors, such as volatile project requirements, lack of
+				programming style rules, and software engineers with insufficient
+				ability or experience.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Spaghetti_code"
+						rel="external">Spaghetti code</a
+					></cite
+				>
+			</dd>
+			<dt id="shoulders-of-giants">
+				<dfn>standing on the shoulders of giants</dfn>
+			</dt><dd>
+				The phrase <strong>standing on the shoulders of giants</strong> is a
+				metaphor which means {ldquo}using the understanding gained by major
+				thinkers who have gone before in order to make intellectual progress{
+					rdquo
+				}.
+			</dd><dd>
+				Attributed initially to <a
+					href="https://en.wikipedia.org/wiki/Bernard_of_Chartres"
+					rel="external">Bernard of Chartres</a
+				>, the phrase was used most famously by <a
+					href="https://en.wikipedia.org/wiki/Isaac_Newton"
+					rel="external">Isaac Newton</a
+				>, who said, {ldquo}If I have seen further, it is by standing on the
+				shoulders of giants{rdquo}.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants"
+						rel="external">Standing on the shoulders of giants</a
+					></cite
+				>
+			</dd>
+			<dt id="sota">
+				<dfn>State-of-the-Art</dfn> (<abbr title="state-of-the-art">SOTA</abbr>)
+			</dt><dd>Very modern and using the most recent ideas and methods.</dd><dd>
+				<cite
+					>Source: <a
+						href="https://dictionary.cambridge.org/dictionary/english/state-of-the-art"
+						rel="external">Cambridge Dictionary</a
+					></cite
+				>
+			</dd>
+			<dt id="static-typing"><dfn>static typing</dfn></dt><dd>
+				A <strong>statically-typed</strong> language is a language (such as
+				Java, C, or C++) where variable types are known at <a
+					href="/glossary/c#compile-time"
+					rel="glossary">compile time</a
+				>. In most of these languages, types must be expressly indicated by the
+				programmer; in other cases (such as OCaml), type inference allows the
+				programmer not to indicate their variable types.
+			</dd><dd>
+				See also <a href="/glossary/t#typescript" rel="glossary">TypeScript</a>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/Static_typing"
+						rel="external">Static typing</a
+					></cite
+				>
+			</dd>
+			<dt id="sunk-cost-fallacy"><dfn>sunk cost fallacy</dfn></dt><dd>
+				A <strong>sunk cost fallacy</strong> is a fallacy where someone
+				convinces themselves that they should continue doing something because
+				they put in a lot of time and/or effort into it, even if they actually
+				get very little reward out of it.
+			</dd><dd>
+				For example, a person might watch the first six episodes of
+				<a
+					href="https://en.wikipedia.org/wiki/Battlestar_Galactica"
+					rel="external">Battlestar Galactica,</a
+				>
+				 but decides they do not like the show. However, because there was a
+				sunk cost, six hours of time, that person tells themselves that because
+				they already spent so much time on it, they might as well finish the
+				show.
+			</dd><dd>Doh!</dd><dd>
+				<cite
+					>Source: <a
+						href="https://simple.wikipedia.org/wiki/Sunk_cost_fallacy"
+						rel="external">Sunk cost fallacy</a
+					></cite
+				>
+			</dd>
+			<dt id="sustainable-web-development">
+				<dfn>sustainable web development</dfn>
+			</dt><dd>
+				Sustainable development is an organizing principle that aims to meet
+				human development goals while also enabling natural systems to provide
+				necessary natural resources and ecosystem services to humans. The
+				desired result is a society where living conditions and resources meet
+				human needs without undermining the planetary integrity and stability of
+				the natural system.
+			</dd><dd>
+				In <a href="/glossary/w#www" rel="glossary">web</a> terms, a good
+				starting point is the
+				<a href="https://www.sustainablewebmanifesto.com/" rel="external"
+					>Sustainable Web Manifesto</a
+				>, which explains sustainable web development as clean, efficient, open,
+				honest, regenerative, and resilient.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Sustainable_development"
+						rel="external">Sustainable development</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

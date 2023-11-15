@@ -1,0 +1,104 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyjoinfailure",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/G4Bn2cybJrirzXzNReBm67lw",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-join-failure/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Sadly, there was a problem with our server. We cannot process
+			your join us form submission at this time. Please try again
+			later or send an email to us at coder at scratchcode.academy.
+		`),
+		version,
+	}),
+	label: "Join us form failure",
+	next: "/join",
+	pageTitle: "Join us form failure  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Join us form", "Form failure"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Ack!</h1>
+		</header>
+		<p>
+			Our form-handling software seems to have fallen right over. We logged the
+			problem, and will look into it ASAP! Our apologies for the trouble.
+		</p>
+		<p>
+			<strong
+				>To be clear: <mark>your sign up request was not received</mark
+				>.</strong
+			>
+		</p>
+		<p>
+			This is an automated process: <strong
+				>no human has seen your submission yet.</strong
+			>
+		</p>
+		<Figure
+			caption={`<a href="https://www.urbandictionary.com/define.php?term=she%27s%20no%20fun,%20she%20fell%20right%20over" rel="external">${CHARS.ldquo}She${CHARS.apostrophe}s no fun! She fell right over!${CHARS.rdquo}</a>`}
+		>
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/failure.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			You might use your browser{apos}s <strong>back button</strong> to return
+			to the <strong>join us form</strong> where you can try again.
+		</p>
+		<p>
+			Or try again later. If it is urgent, then please send an email to <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject={getSubject(metadata.title)}
+			/> or try our <a href="/feedback">feedback form</a>.
+		</p>
+		<p>
+			If you do email us, then please put <strong
+				>{getSubject(metadata.title)}</strong
+			> in the subject line.
+		</p>
+		<p>
+			We are very sorry for this hassle and will try to correct the problem
+			ASAP. <strong>But please do keep trying.</strong>
+		</p>
+		<p>The ScratchCode Community wants YOU.</p>
+	</Article>
+</Layout>

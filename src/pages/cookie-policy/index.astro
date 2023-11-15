@@ -1,0 +1,153 @@
+---
+import {
+  Article,
+  BooleanField,
+  Button,
+  ButtonBar,
+  EmailField,
+  Fieldset,
+  Form,
+  Honeypot,
+  StringField,
+  TimeToRead,
+} from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/cookie-policy";
+
+const { apostrophe: apos, ellipsis: ellip } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  carbon: {
+    beacon: {
+      href: "https://digitalbeacon.co/report/scratchcode-academycookie-policy",
+      firstCarbon: 0.011,
+      grade: "A+",
+      repeatCarbon: 0.007,
+    },
+    ecograder: {
+      href: "https://ecograder.com/report/CLDo9lx0tDrqvyWB0ZEg4L0y",
+      score: 83,
+    },
+    webCarbon: {
+      count: 0.01,
+      href: "https://www.websitecarbon.com/website/scratchcode-academy-cookie-policy/",
+      percentage: 99,
+    },
+  },
+  ...getters,
+  keywords: [
+    "craft code",
+    "scratchcode.academy",
+    "cookie policy",
+    "cookie",
+    "analytics",
+    "web analytics",
+    "http cookie",
+    "policy",
+  ],
+  label: "Cookies",
+  next: "/diversity-policy",
+  pageTitle: "Our cookie policy ~ ScratchCode",
+  prev: "/terms-of-use",
+  title: "Our cookie policy",
+};
+
+const { getArticleData, title } = metadata;
+const article = getArticleData ? getArticleData("") : undefined;
+---
+
+<Layout {metadata} noSubscribe {title}>
+  <Article id="main-content" {title}>
+    <TimeToRead {article} />
+    <p>
+      Craft-Code.dev does not use <a href="/glossary/c/#cookie" rel="glossary"
+        >cookies</a
+      >. We have no need for them.
+    </p>
+    <p>
+      The ScratchCode site does not currently measure <a
+        href="/glossary/w/#web-analytics"
+        rel="glossary">analytics</a
+      >. We do the best we can to make our content useful and to engage with our
+      readers and other craft coders. We do a lot of testing. Otherwise, we
+      trust that people will let us know what we can do better.
+    </p>
+    <p>
+      If you have any questions, please feel free to <a href="/contact"
+        >contact us</a
+      >.
+    </p>
+    <p>
+      Hey, cookies aren{apos}t all that healthy anyway! We much prefer a good
+      almond biscotti with our morning coffee. Or a lovely date scone. Or a
+      classic sesame seed bagel toasted golden brown with a thick layer of cream
+      cheese.
+    </p>
+    <p>Or, ooo, how about some lox?</p>
+    <p>
+      Or, if we{apos}re going all the way, a proper tiramisu then. Gâteau
+      Chocolate. New York Cheesecake. Sigh {ellip} Now we{apos}re hungry.
+    </p>
+    <p>Cookies. Meh.</p>
+    <p>
+      If any of that was unclear, feel free to contact us using the form below.
+    </p>
+    <Form
+      action="/api/contact"
+      method="post"
+      name="contactForm"
+      validation="default"
+    >
+      {
+        ({ form }: { form: string }) => (
+          <>
+            <Fieldset label="Talk to us">
+              <StringField
+                cols={48}
+                {form}
+                label="Compose your message"
+                message="We read them all and respond when we can."
+                name="message"
+                required
+                rows={8}
+                value=""
+              />
+              <EmailField
+                {form}
+                label="Provide your email address"
+                message={`We can${CHARS.apostrophe}t respond without one.`}
+                name="emailAddress"
+                required
+                size={32}
+                value=""
+              />
+              <StringField
+                {form}
+                label="Add your name"
+                message={`So we don${CHARS.apostrophe}t call you ${CHARS.ldquo}buddy${CHARS.rdquo} ${CHARS.ellipsis}`}
+                name="name"
+                size={32}
+                value=""
+              />
+              <BooleanField
+                {form}
+                label="Notify me when you publish new articles."
+                name="wantsUpdates"
+                value="yes"
+              />
+            </Fieldset>
+            <ButtonBar {form}>
+              <Button {form} type="submit">
+                Send your message
+              </Button>
+            </ButtonBar>
+            <Honeypot {form} password="samizdat" />
+          </>
+        )
+      }
+    </Form>
+  </Article>
+</Layout>

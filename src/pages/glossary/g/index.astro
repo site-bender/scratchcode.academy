@@ -1,0 +1,80 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ellipsis: ellip, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryg",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/YC1W2eFMqipfjACvlrFcNKnY",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-g/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		G is for green hosting: the glossary page for terms beginning with
+		G for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "GUI", "green hosting"],
+	label: "G is for green hosting",
+	next: "/glossary/h",
+	pageTitle: "G is for green hosting ~ ScratchCode glossary",
+	prev: "/glossary/f",
+	title: "G is for green hosting",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="gui">
+				<dfn>Graphical User Interface</dfn> (<abbr
+					title="graphical user interface">GUI</abbr
+				>)
+			</dt><dd>
+				The <strong>graphical user interface</strong>, or <strong>GUI</strong>
+				 (pronounced GOO-ee), is a form of user interface that allows users to
+				interact with electronic devices through graphical icons and audio
+				indicators {ellip} instead of text-based <a
+					href="/glossary/u#ui"
+					rel="glossary"
+					title="User interfaces">UIs</a
+				> [think Microsoft Windows].
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Graphical_user_interface"
+						rel="external">Graphical user interface</a
+					></cite
+				>
+			</dd>
+			<dt id="green-hosting"><dfn>green hosting</dfn></dt><dd>
+				<strong>Green hosting</strong> is the use of web <a
+					href="/glossary/s#server"
+					rel="glossary">servers</a
+				>
+				 run on {ldquo}green{rdquo}, sustainable, renewable energy, either
+				in-house or as a service.
+			</dd>
+		</dl>
+	</Article>
+</Layout>

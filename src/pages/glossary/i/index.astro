@@ -1,0 +1,87 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryi",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/VhguDseRyIHyXWfxQDSk94Xb",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-i/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		I is for internet: the glossary page for terms beginning with
+		I for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "information technology", "internet"],
+	label: "I is for internet",
+	next: "/glossary/j",
+	pageTitle: "I is for internet ~ ScratchCode glossary",
+	prev: "/glossary/h",
+	title: "I is for internet",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="information-technology">
+				<dfn>Information Technology</dfn> (<abbr title="information technology"
+					>IT</abbr
+				>)
+			</dt><dd>
+				<strong>Information technology</strong> (IT) is a set of related fields
+				that encompass computer systems, software, programming languages and
+				data and information processing and storage.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Information_technology"
+						rel="external">Information technology</a
+					></cite
+				>
+			</dd>
+			<dt id="internet"><dfn>internet</dfn></dt><dd>
+				The Internet (or <strong>internet</strong>) is the global system of
+				interconnected computer networks that uses the Internet protocol suite
+				(TCP/IP) to communicate between networks and devices.
+			</dd><dd>
+				It is a network of networks that consists of private, public, academic,
+				business, and government networks of local to global scope, linked by a
+				broad array of electronic, wireless, and optical networking
+				technologies.
+			</dd><dd>
+				The Internet carries a vast range of information resources and services,
+				such as the interlinked hypertext documents and applications of the <a
+					href="/glossary/w#www"
+					rel="glossary">World Wide Web</a
+				> (WWW), electronic mail, telephony, and file sharing.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Internet"
+						rel="external">Internet</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

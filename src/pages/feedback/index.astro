@@ -1,0 +1,123 @@
+---
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import {
+  Article,
+  Button,
+  ButtonBar,
+  EmailField,
+  Fieldset,
+  Form,
+  Honeypot,
+  StringField,
+} from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  carbon: {
+    beacon: {
+      href: "https://digitalbeacon.co/report/scratchcode-academyfeedback",
+      firstCarbon: 0.01,
+      grade: "A+",
+      repeatCarbon: 0.006,
+    },
+    ecograder: {
+      href: "https://ecograder.com/report/8hM6HDX4StKs71IxVklqmIhc",
+      score: 83,
+    },
+    webCarbon: {
+      count: 0.01,
+      href: "https://www.websitecarbon.com/website/scratchcode-academy-feedback/",
+      percentage: 99,
+    },
+  },
+  ...getters,
+  keywords: [
+    "craft code",
+    "scratchcode.academy",
+    "feedback",
+    "bug",
+    "bug report",
+    "issue",
+    "sustainability",
+    "accessibility",
+    "UX",
+  ],
+  label: "Provide feedback",
+  next: "/",
+  pageTitle: "Give us feedback or report bugs ~ ScratchCode",
+  prev: "/join",
+  title: "Give us feedback",
+};
+
+const { title } = metadata;
+---
+
+<Layout {metadata} noSubscribe {title}>
+  <Article id="main-content" {title}>
+    <p>
+      Got a problem with the ScratchCode site? Found a bug or some other issue?
+      Think we could do something better? Report it here.
+    </p>
+    <p>
+      <strong
+        >Feel free to suggest changes or improvements to design, code, UX,
+        sustainability. Or anything else. Compliments welcome, too!</strong
+      >
+    </p>
+    <p>
+      Please note: complete and thorough bug descriptions or suggestions are
+      best. The more complete, the easier to implement. So don{apos}t hold back!
+
+
+      <strong>Be detailed and comprehensive.</strong>
+    </p>
+    <p>And thanks much for your help!</p>
+    <Form action="/api/feedback" method="post" name="feedbackForm">
+      {
+        ({ form }: { form: string }) => (
+          <>
+            <Fieldset label="Provide feedback">
+              <StringField
+                {form}
+                message="Please describe the bug, suggestion, etc. in detail."
+                label="What is the issue?"
+                name="feedback"
+                cols={48}
+                required
+                rows={8}
+                value=""
+              />
+              <EmailField
+                {form}
+                message={`If you would like a personal response ${CHARS.ellipsis}`}
+                label="Add your email address"
+                name="emailAddress"
+                size={32}
+                value=""
+              />
+              <StringField
+                {form}
+                message="How would you prefer that we address you?"
+                label="Add your name"
+                name="name"
+                size={32}
+                value=""
+              />
+            </Fieldset>
+            <ButtonBar {form}>
+              <Button {form} type="submit">
+                Submit your feedback
+              </Button>
+            </ButtonBar>
+            <Honeypot {form} />
+          </>
+        )
+      }
+    </Form>
+  </Article>
+</Layout>

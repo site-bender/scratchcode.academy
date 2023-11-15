@@ -1,0 +1,93 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfaqssuccess",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/tM1xdnw3RT6R3LlWWzyao16l",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-faqs-success/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Success! Your question has been forwarded to us. We will
+			get right on it! If you included your email address, we
+			will do our best to respond. Thanks for your help.
+		`),
+		version,
+	}),
+	label: "FAQ form success",
+	next: "/faqs",
+	pageTitle: "FAQ form success  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("FAQ form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Success!</h1>
+		</header>
+		<p>
+			Our server sent <strong>your question</strong> to us at ScratchCode. We{
+				apos
+			}ll get right on it.
+		</p>
+		<p>Thanks much for your interest!</p>
+		<Figure caption="Everyone loves connection.">
+			<img
+				alt=""
+				height="360"
+				src="/images/iconic/make-intentions-clear.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			If your question is “frequently asked”, or if we believe that others will
+			benefit from a public answer frequently-asked or not, then we will <mark
+				>add it to our FAQs.</mark
+			> Otherwise, we will try to respond to you personally. If you provided
+			your email address, that is.
+		</p>
+		<p>
+			Of course, we will ignore spam, trolls, abuse, etc., and will ban
+			offending email addresses. Who has time for that nonsense?
+		</p>
+		<p>
+			If you don{apos}t hear from us within a few days, consider resending your
+			question just in case it was{apos}t received.
+		</p>
+		<p>
+			We appreciate your efforts to help make the <a
+				href="https://scratchcode.academy/">ScratchCode</a
+			>
+			 site a better resource for everyone who wants to code with craft. <strong
+				>Our most sincere thanks.</strong
+			>
+		</p>
+	</Article>
+</Layout>

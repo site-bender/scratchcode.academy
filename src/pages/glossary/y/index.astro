@@ -1,0 +1,72 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryy",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/okWNmE1Y4fosmUEY4YrWU9BW",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-y/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		Y is for YAGNI: the glossary page for terms beginning with
+		Y for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "YAGNI"],
+	label: "Y is for YAGNI",
+	next: "/glossary/z",
+	pageTitle: "Y is for YAGNI ~ ScratchCode glossary",
+	prev: "/glossary/x",
+	title: "Y is for YAGNI",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="yagni">
+				<dfn>You Aren{apos}t Gonna Need It</dfn> (<abbr
+					title="you aren{apos}t gonna need it">YAGNI</abbr
+				>)
+			</dt><dd>
+				{ldquo}You aren{apos}t gonna need it{rdquo} (<strong>YAGNI</strong>) is
+				a principle which arose from extreme programming (<a
+					href="https://en.wikipedia.org/wiki/Extreme_programming"
+					rel="external">XP</a
+				>) that states a programmer should not add functionality until deemed
+				necessary. Other forms of the phrase include
+				{ldquo}You aren{apos}t going to need it{rdquo} (YAGTNI) and {ldquo}You
+				ain{apos}t gonna need it{rdquo}.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it"
+						rel="external">You aren{apos}t gonna need it</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

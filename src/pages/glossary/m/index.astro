@@ -1,0 +1,84 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossarym",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/Ewt4icWID3U2hE8FlyBvMhY0",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-m/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		M is for MVP: the glossary page for terms beginning with
+		M for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "MVP"],
+	label: "M is for MVP",
+	next: "/glossary/n",
+	pageTitle: "M is for MVP ~ ScratchCode glossary",
+	prev: "/glossary/l",
+	title: "M is for MVP",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="media-query">
+				<dfn>media query</dfn>
+			</dt><dd>
+				<strong>Media queries</strong> allow you to apply <a
+					href="/glossary/c#css"
+					rel="glossary">CSS</a
+				> styles depending on a device{apos}s general type (such as print vs.
+				screen) or other characteristics such as screen resolution or browser
+				viewport width.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"
+						rel="external">Using media queries</a
+					></cite
+				>
+			</dd>
+
+			<dt id="mvp">
+				<dfn>Minimum Viable Product</dfn> (<abbr title="minimum viable product"
+					>MVP</abbr
+				>)
+			</dt><dd>
+				A minimum viable product (<strong>MVP</strong>) is a version of a
+				product with just enough features to be usable by early customers who
+				can then provide feedback for future product development.
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Minimum_viable_product"
+						rel="external">Minimum viable product</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

@@ -1,0 +1,93 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  getWebPageData: (version: string): WebPage => ({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    description: collapseWhitespace(`
+			Sadly, there was a problem with our server. We cannot
+			process your media inquiry form submission at this time.
+			Please try again later or send an email to us at coder at
+			scratchcode.academy.
+		`),
+    version,
+  }),
+  label: "Media inquiry form failure",
+  next: "/media",
+  pageTitle: "Media inquiry form failure",
+  robots: "noindex",
+  title: getFormTitle("Media inquiry form", "Form failure"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+  <Article id="main-content">
+    <header class="article-header">
+      <h1>Ack!</h1>
+    </header>
+    <p>
+      Our form-handling software seems to have fallen right over. We have logged
+      the issue, and will look into it ASAP! Our apologies for the trouble.
+    </p>
+    <p>
+      <strong
+        >To be clear: <mark>your media inquiry was not received</mark>.</strong
+      >
+    </p>
+    <p>
+      This is an automated process: <strong
+        >no human has seen your submission yet.</strong
+      >
+    </p>
+    <Figure
+      caption={`<a href="https://www.urbandictionary.com/define.php?term=she%27s%20no%20fun,%20she%20fell%20right%20over" rel="external">${CHARS.ldquo}She${CHARS.apostrophe}s no fun! She fell right over!${CHARS.rdquo}</a>`}
+    >
+      <img
+        alt=""
+        height="360"
+        src="/images/forms/failure.svg"
+        style="margin: auto"
+        width="360"
+      />
+    </Figure>
+    <p>
+      You might use your browser{apos}s <strong>back button</strong> to return
+      to the <strong>media inquiry form</strong> where you can try again.
+    </p>
+    <p>
+      Or try again later. If it is urgent, then please send an email to <CoderEmail
+        domain="scratchcode.academy"
+        emailAddress="coder"
+        subject={getSubject(metadata.title)}
+      /> or try our <a href="/feedback">feedback form</a>.
+    </p>
+    <p>
+      If you do email us, then please put <strong
+        >{getSubject(metadata.title)}</strong
+      > in the subject line.
+    </p>
+    <p>
+      We do want to hear from you, so we hope we can get this straightened out.
+      If we have somehow screwed this up or there is something that we could do
+      better, then please do let us know.
+    </p>
+    <p>
+      But please don{apos}t give up! <strong
+        >We want to reach as many craft coders as possible</strong
+      > to provide support and to let them know that they are <em>not alone</em
+      >. Publicity is essential.
+    </p>
+  </Article>
+</Layout>

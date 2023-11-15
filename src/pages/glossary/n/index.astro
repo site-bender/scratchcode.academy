@@ -1,0 +1,74 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryn",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/Kmuzt4KYwnmQRK1XeWKYQ9XQ",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-n/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		N is for network: the glossary page for terms beginning with
+		N for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "network", "NCDP"],
+	label: "N is for network",
+	next: "/glossary/o",
+	pageTitle: "N is for network ~ ScratchCode glossary",
+	prev: "/glossary/m",
+	title: "N is for network",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="network"><dfn>network</dfn></dt><dd>
+				A computer <strong>network</strong> is a set of computers communicating
+				with each other and sharing resources (such as web pages) over wired or
+				via radio waves (wifi).
+			</dd>
+			<dt id="no-code">
+				<dfn>No Code Development Platform</dfn> (<abbr
+					title="no code development platform">NCDP</abbr
+				>)
+			</dt><dd>
+				<strong>No-code development platforms</strong> (NCDPs) allow creating
+				application software through graphical user interfaces and configuration
+				instead of traditional computer programming. No-code development
+				platforms are closely related to
+				<a href="/glossary/l#low-code" rel="glossary"
+					>low-code development platforms</a
+				>
+				 as both are designed to expedite the application development process.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/No-code_development_platform"
+						rel="external">No-code development platform</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

@@ -1,0 +1,149 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ldquo, md, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryd",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/iTVpSyODcx2dv3c82CCQmYmL",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-d/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		D is for diversity: the glossary page for terms beginning with
+		D for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"declarative language",
+		"DEI",
+		"DOM",
+		"DRY",
+	],
+	label: "D is for diversity",
+	next: "/glossary/e",
+	pageTitle: "D is for diversity ~ ScratchCode glossary",
+	prev: "/glossary/c",
+	title: "D is for diversity",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="declarative-language"><dfn>declarative language</dfn></dt><dd>
+				In computer science, <strong>declarative programming</strong> is a
+				programming paradigm{md}a style of building the structure and elements
+				of computer programs{md}that expresses the logic of a computation
+				without describing its control flow.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Declarative_programming"
+						rel="external">Declarative programming</a
+					></cite
+				>
+			</dd>
+			<dt id="dei">
+				<dfn>Diversity, Equity, and Inclusion</dfn> (<abbr
+					title="diversity, equity, and inclusion">DEI</abbr
+				>)
+			</dt><dd>
+				<strong>Diversity, equity, and inclusion</strong> (usually abbreviated
+				DEI) refers to organizational frameworks which seek to promote {
+					ldquo
+				}the fair treatment and full participation of all people{rdquo},
+				particularly groups
+				{ldquo}who have historically been underrepresented or subject to
+				discrimination{rdquo} on the basis of identity or disability.
+			</dd><dd>
+				These three notions (diversity, equity, and inclusion) together
+				represent {ldquo}three closely linked values{rdquo} which organizations
+				seek to institutionalize through DEI frameworks.
+			</dd><dd>
+				Some frameworks, primarily in Britain, substitute the notion of {
+					ldquo
+				}equity{rdquo}
+				 with equality: equality, diversity, inclusion (EDI). Other variations
+				include diversity, equity, inclusion and belonging (DEIB), justice,
+				equity, diversity, and inclusion (JEDI or EDIJ), or diversity, equity,
+				inclusion and access (IDEA or DEAI).
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Diversity,_equity,_and_inclusion"
+						rel="external">Diversity, equity, and inclusion</a
+					></cite
+				>
+			</dd>
+			<dt id="dom">
+				<dfn>Document Object Model</dfn> (<abbr title="document object model"
+					>DOM</abbr
+				>)
+			</dt><dd>
+				The <strong>Document Object Model</strong> (DOM) is a cross-platform and
+				language-independent interface that treats an <a
+					href="/glossary/h#html"
+					rel="glossary">HTML</a
+				> or
+				<a href="/glossary/x#xml" rel="glossary">XML</a> document as a tree
+				structure wherein each node is an object representing a part of the
+				document. The DOM represents a document with a logical tree.
+			</dd><dd>
+				Each branch of the tree ends in a node, and each node contains objects.
+				DOM methods allow programmatic access to the tree; with them one can
+				change the structure, style or content of a document. Nodes can have
+				event handlers (also known as event listeners) attached to them. Once an
+				event is triggered, the event handlers get executed.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Document_Object_Model"
+						rel="external">Document Object Model</a
+					></cite
+				>
+			</dd>
+			<dt id="dry">
+				<dfn>Don{apos}t Repeat Yourself</dfn> (<abbr
+					title="don{apos}t repeat yourself">DRY</abbr
+				>)
+			</dt><dd>
+				<strong>Don{apos}t repeat yourself</strong> (DRY) is a principle of
+				software development aimed at reducing repetition of information which
+				is likely to change, replacing it with abstractions that are less likely
+				to change, or using data normalization which avoids redundancy in the
+				first place.
+			</dd><dd>But see <a href="/glossary/a#aha" rel="glossary">AHA</a>.</dd><dd
+			>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"
+						rel="external">Don{apos}t repeat yourself</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

@@ -1,0 +1,74 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { md } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryx",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/3CynEnc2Du3krhTtHf75FXWU",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-x/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		X is for eXtensible: the glossary page for terms beginning with
+		X for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "XML"],
+	label: "X is for eXtensible",
+	next: "/glossary/y",
+	pageTitle: "X is for eXtensible ~ ScratchCode glossary",
+	prev: "/glossary/w",
+	title: "X is for eXtensible",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="xml">
+				<dfn>Extensible Markup Language</dfn> (<abbr
+					title="Extensible Markup Language">XML</abbr
+				>)
+			</dt><dd>
+				<strong>Extensible Markup Language</strong> (XML) is a markup language
+				and file format for storing, transmitting, and reconstructing arbitrary
+				data. It defines a set of rules for encoding documents in a format that
+				is both human-readable and machine-readable. The
+				<a href="https://www.w3.org/TR/REC-xml/" rel="external"
+					>XML 1.0 Specification</a
+				> formalized by the <a href="https://www.w3.org/" rel="external">W3C</a>
+				 in 1998 and several other related specifications{md}all of them free
+				open standards{md}defines XML.
+			</dd><dd>
+				See also <a href="/glossary/j#json" rel="glossary">JSON</a>.
+			</dd><dd>
+				<cite
+					>Source: <a href="https://en.wikipedia.org/wiki/XML" rel="external"
+						>XML</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

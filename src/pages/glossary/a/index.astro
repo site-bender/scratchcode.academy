@@ -1,0 +1,238 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ellipsis: ellip, ldquo, md, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossarya",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/x9QUXwZAyNBGSkruWsOIV0y6",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-a/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		A is for accessibility: the glossary page for terms beginning with
+		A for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"definition",
+		"accessibility",
+		"abstraction",
+		"AJAX",
+		"API",
+		"attack surface",
+		"AHA",
+		"avoid hasty abstractions",
+		"AWS",
+		"AI",
+		"artificial intelligence",
+	],
+	label: "A is for accessibility",
+	next: "/glossary/a",
+	pageTitle: "A is for accessibility ~ ScratchCode glossary",
+	prev: "/glossary",
+	title: "A is for accessibility",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="a11y">
+				<dfn>accessibility</dfn> (<abbr title="accessibility">a11y</abbr>)
+			</dt><dd>
+				<strong>Accessibility</strong> (often abbreviated to A11y{md}as in, {
+					ldquo
+				}a{rdquo}, then 11 characters, and then {ldquo}y{rdquo}) in web
+				development means enabling as many people as possible to use websites,
+				even when those people{apos}s abilities are limited in some way.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/Accessibility"
+						rel="external">Accessibility</a
+					></cite
+				>
+			</dd>
+			<dt id="abstraction"><dfn>abstraction</dfn></dt><dd>
+				In software engineering and computer science, <strong
+					>abstraction</strong
+				> is the process of generalizing concrete details, such as attributes,
+				away from the study of objects and systems to focus attention on details
+				of greater importance.
+			</dd><dd>
+				Abstraction is a fundamental concept in computer science and software
+				engineering, especially within the <a
+					href="/glossary/o#oop"
+					rel="glossary">object-oriented programming</a
+				>
+				 paradigm.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)"
+						rel="external">Abstraction (computer science)</a
+					></cite
+				>
+			</dd>
+			<dt id="ajax">
+				<dfn>Asynchronous JavaScript and XML</dfn> (<abbr
+					title="Asynchronous JavaScript and XML">AJAX</abbr
+				>)
+			</dt><dd>
+				Ajax (also <strong>AJAX</strong>; short for {ldquo}asynchronous
+				JavaScript and XML{rdquo}) is a set of web development techniques that
+				uses various web technologies on the
+				<a href="/glossary/c#client-side" rel="glossary">client-side</a> to
+				create asynchronous web applications.
+			</dd><dd>
+				With Ajax, web applications can send and retrieve data from a server
+				asynchronously (in the background) without interfering with the display
+				and behavior of the existing page.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Ajax_(programming)"
+						rel="external">Ajax (programming)</a
+					></cite
+				>
+			</dd>
+			<dt id="api">
+				<dfn>Application Programming Interface</dfn> (<abbr
+					title="application programming interface">API</abbr
+				>)
+			</dt><dd>
+				An <strong>application programming interface</strong> (API) is in
+				contrast with a
+				<a href="/glossary/u#ui" rel="glossary">User Interface</a>. It is a way
+				for two or more computer programs to communicate with each other. It is
+				a type of software interface, offering a service to other pieces of
+				software.
+			</dd><dd>
+				A document or standard that describes how to build or use such a
+				connection or interface is called an <strong>API specification</strong>.
+				A computer system that meets this standard is said to <strong
+					>implement or expose an API</strong
+				>. The term API may refer either to the specification or to the
+				implementation.
+			</dd><dd>
+				<cite
+					>Source: <a href="https://en.wikipedia.org/wiki/API" rel="external"
+						>API</a
+					></cite
+				>
+			</dd>
+			<dt id="attack-surface"><dfn>attack surface</dfn></dt><dd>
+				An <strong>attack surface</strong> is the entire area of an organization
+				or system that is susceptible to hacking. It{apos}s made up of all the
+				points of access that an unauthorized person could use to enter the
+				system. Once inside your network, that user could cause damage by
+				manipulating or downloading data.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://www.okta.com/identity-101/what-is-an-attack-surface/"
+						rel="external">What is an Attack Surface?</a
+					></cite
+				>
+			</dd>
+			<dt id="aha">
+				<dfn>Avoid Hasty Abstractions</dfn> (<abbr
+					title="avoid hasty abstractions">AHA</abbr
+				>)
+			</dt><dd>
+				<strong>AHA</strong> stands for avoid hasty abstractions, described by
+
+				<a href="https://kentcdodds.com/" rel="external">Kent C. Dodds</a> as
+				optimizing for change first, and avoiding <a
+					href="/glossary/p#premature-optimization"
+					rel="glossary">premature optimization</a
+				>. [It] was influenced by
+				<a href="https://sandimetz.com/" rel="external">Sandi Metz{apos}s</a>{
+					" "
+				}
+				{ldquo}prefer duplication over the wrong abstraction{rdquo}.
+			</dd><dd>
+				AHA is rooted in the understanding that the deeper the investment we{
+					apos
+				}ve made into abstracting a piece of software, the more we perceive that
+				the cost of that investment can never be recovered (<a
+					href="/glossary/s#sunk-cost-fallacy"
+					rel="glossary">sunk cost fallacy</a
+				>).
+			</dd><dd>
+				Thus, engineers tend to continue to iterate on the same abstraction each
+				time the requirement changes {ellip} Instead of starting with an
+				abstraction, or abstracting at a specific number of duplications,
+				software can be more flexible and robust if abstraction is done when it
+				is needed, or, when the duplication itself has become the barrier and it
+				is known how the abstraction needs to function.
+			</dd><dd>
+				See also <a href="/glossary/d#dry" rel="glossary">DRY</a>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself#AHA"
+						rel="external">AHA</a
+					></cite
+				>
+			</dd>
+			<dt id="aws">
+				<dfn>Amazon Web Services</dfn> (<abbr title="Amazon Web Services"
+					>AWS</abbr
+				>)
+			</dt><dd>
+				<strong>AWS</strong> is an enormous, global, {ldquo}<a
+					href="/glossary/c#cloud-services"
+					rel="glossary">cloud service</a
+				>{rdquo} providing over two hundred individual services out of data
+				centers located on every continent save Antarctica. Penguins don{apos}t
+				surf!
+			</dd><dd>
+				See <a href="https://aws.amazon.com/what-is-aws/" rel="external"
+					>What is AWS?</a
+				> for more information.
+			</dd>
+			<dt id="ai">
+				<dfn>Artificial Intelligence</dfn> (<abbr
+					title="Artificial intelligence">AI</abbr
+				>)
+			</dt><dd>
+				<strong>Artificial intelligence</strong> (AI) is the intelligence of
+				machines or software, as opposed to the intelligence of humans or
+				animals. It is also the field of study in computer science that develops
+				and studies intelligent machines. {ldquo}AI{rdquo} may also refer to the
+				machines themselves.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Artificial_intelligence"
+						rel="external">Artificial intelligence</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

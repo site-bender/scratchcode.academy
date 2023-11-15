@@ -1,0 +1,90 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academycontactsuccess",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/HAmRPG3t7mAnmh8OSjueuICc",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-contact-success/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Success! Your message to ScratchCode has been forwarded to us.
+			We will get right on it, and will respond quickly if appropriate.
+			Thanks for your interest.
+		`),
+		version,
+	}),
+	label: "Contact form success",
+	next: "/contact",
+	pageTitle: "Contact form success  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Contact form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Success!</h1>
+		</header>
+		<p>
+			Our server sent <strong>your message</strong> to us at ScratchCode. We{
+				apos
+			}ll get right to it.
+		</p>
+		<p>Thanks much for your interest!</p>
+		<p>
+			If your message expects a response, then we will respond as soon as
+			practicable. Of course, we will ignore spam, trolls, abuse, etc., and will
+			ban offending email addresses. Who has time for that nonsense?
+		</p>
+		<p>
+			If you checked the box to <strong>sign up for notifications</strong>, then
+			we have also added your email address to our list. We will be notify you
+			whenever new content appears on the <a href="https://scratchcode.academy/"
+				>ScratchCode</a
+			> site. Nice!
+		</p>
+		<p>
+			If you did sign up, then you should receive a <strong
+				>confirmation email</strong
+			>. It{apos}s true: we have a list and <em
+				>we{apos}re checking it twice.</em
+			> Gonna find out who{apos}s naughty or nice.
+		</p>
+		<p>
+			<mark>You must click on the confirm button</mark> in that email to
+			complete the sign up process. If you do not, then you will not receive
+			notifications from ScratchCode.
+		</p>
+		<p>
+			Annoying, yes. We are sorry to have to do it. But <strong>wow</strong> do
+			people get angry when you send them, even by mistake, unsolicited email.
+			We play it safe.
+		</p>
+	</Article>
+</Layout>

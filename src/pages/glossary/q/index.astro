@@ -1,0 +1,66 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryq",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/cZj9MzUaewqGlped5OBg5n0C",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-q/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		Q is for QR code: the glossary page for terms beginning with
+		Q for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "QR code"],
+	label: "Q is for QR code",
+	next: "/glossary/r",
+	pageTitle: "Q is for QR code ~ ScratchCode glossary",
+	prev: "/glossary/p",
+	title: "Q is for QR code",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="qr-code"><dfn>QR code</dfn></dt><dd>
+				A <strong>QR code</strong> (short for {ldquo}quick-response code{rdquo})
+				is a type of two-dimensional matrix barcode, invented in 1994, by
+				Japanese company Denso Wave for labelling automobile parts. A barcode is
+				a machine-readable optical image that contains information specific to
+				the labelled item. In practice, QR codes contain data for a locator, an
+				identifier, and web tracking.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/QR_code"
+						rel="external">QR code</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

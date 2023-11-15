@@ -1,0 +1,187 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ellipsis: ellip, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryl",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/L3CTgYxjo2vDmTbzoqQHPEGg",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-l/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		L is for loose coupling: the glossary page for terms beginning with
+		L for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "LLM", "loose coupling", "LCDP", "LCD"],
+	label: "L is for loose coupling",
+	next: "/glossary/m",
+	pageTitle: "L is for loose coupling ~ ScratchCode glossary",
+	prev: "/glossary/k",
+	title: "L is for loose coupling",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="landmark-element">
+				<dfn>landmark element</dfn>
+			</dt><dd>
+				<a
+					href="/glossary/h#html"
+					rel="glossary"
+					title="HyperText Markup Language">HTML</a
+				>{" "}
+				<strong>landmarks</strong> are used to categorize and group content on a
+				web page for better accessibility and <a
+					href="/glossary/s#seo"
+					rel="glossary"
+					title="Search Engine Optimization">SEO</a
+				>
+			</dd><dd>These include, with their associated landmark roles:</dd><dd>
+				<ul>
+					<li>
+						<code>&lt;header&gt;</code>: banner role, but only in the context of
+						the <code>&lt;body&gt;</code> element.
+					</li>
+					<li>
+						<code>&lt;nav&gt;</code>: navigation.
+					</li>
+					<li>
+						<code>&lt;main&gt;</code>: main.
+					</li>
+					<li>
+						<code>&lt;aside&gt;</code>: complementary.
+					</li>
+					<li>
+						<code>&lt;form&gt;</code>: form, but only when it has an accessible
+						name via an <code>aria-labelledby</code>,
+						<code>aria-label</code>, or <code>title</code> attribute.
+					</li>
+					<li>
+						<code>&lt;footer&gt;</code>: contentinfo, but only in the context of
+						the <code>&lt;body&gt;</code> element.
+					</li>
+					<li>
+						<code>&lt;section&gt;</code>: region, but only when it has an
+						accessible name via an <code>aria-labelledby</code>,
+						<code>aria-label</code>, or <code>title</code> attribute.
+					</li>
+				</ul>
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/HTML_landmarks"
+						rel="external">HTML landmarks</a
+					></cite
+				>
+			</dd>
+			<dt id="llm">
+				<dfn>Large Language Model</dfn> (<abbr title="Large Language Model"
+					>LLM</abbr
+				>)
+			</dt><dd>
+				A <strong>large language model</strong> (LLM) is a type of language
+				model notable for its ability to achieve general-purpose language
+				understanding and generation. LLMs acquire these abilities by using
+				massive amounts of data to learn billions of parameters during training
+				and consuming large computational resources during their training and
+				operation.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Large_language_model"
+						rel="external">Large language model</a
+					></cite
+				>
+			</dd>
+			<dt id="loose-coupling"><dfn>loose coupling</dfn></dt><dd>
+				In computing and systems design, a <strong>loosely-coupled</strong>
+				 system is one
+			</dd><dd>
+				<ol>
+					<li>
+						in which components are weakly associated (have breakable
+						relationships) with each other, and thus changes in one component
+						least affect existence or performance of another component.
+					</li><li>
+						in which each of its components has, or makes use of, little or no
+						knowledge of the definitions of other separate components {ellip}
+						 Loose coupling is the opposite of
+						<a href="/glossary/t#tight-coupling" rel="glossary"
+							>tight coupling</a
+						>.
+					</li>
+				</ol>
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Loose_coupling"
+						rel="external">Loose coupling</a
+					></cite
+				>
+			</dd>
+			<dt id="low-code">
+				<dfn>Low Code Development Platform</dfn> (<abbr
+					title="low code development platform">LCDP</abbr
+				>)
+			</dt><dd>
+				A <strong>low-code development platform</strong> (LCDP) provides a
+				development environment used to create application software through a
+				graphical user interface. A low-coded platform may produce entirely
+				operational applications, or require additional coding for specific
+				situations.
+			</dd><dd>
+				See also <a href="/glossary/n#no-code" rel="glossary"
+					>no-code development platform</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Low-code_development_platform"
+						rel="external">Low-code development platform</a
+					></cite
+				>
+			</dd>
+			<dt id="lcd">
+				<dfn>Lowest Common Denominator</dfn> (<abbr
+					title="lowest common denominator">LCD</abbr
+				>)
+			</dt><dd>
+				The expression {ldquo}lowest common denominator{rdquo} is used to
+				describe (usually in a disapproving manner) a rule, proposal, opinion,
+				or media that is deliberately simplified so as to appeal to the largest
+				possible number of people.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Lowest_common_denominator#Colloquial_usage"
+						rel="external">Lowest common denominator</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

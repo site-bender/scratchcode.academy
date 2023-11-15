@@ -1,0 +1,136 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossarye",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/EmznZ88oSwseDNf5xJM4FR1T",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-e/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		E is for exitprise: the glossary page for terms beginning with
+		E for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"EAS",
+		"ESG",
+		"exitprise",
+		"external dependencies",
+	],
+	label: "E is for exitprise",
+	next: "/glossary/f",
+	pageTitle: "E is for exitprise ~ ScratchCode glossary",
+	prev: "/glossary/d",
+	title: "E is for exitprise",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="eas">
+				<dfn>Enterprise Application Software</dfn> (<abbr
+					title="enterprise application software">EAS</abbr
+				>)
+			</dt><dd>
+				Enterprise software, also known as <strong
+					>enterprise application software</strong
+				>
+				 (EAS), is computer software used to satisfy the needs of an
+				organization rather than individual users. Such organizations include
+				businesses, schools, interest-based user groups, clubs, charities, and
+				governments. Enterprise software is an integral part of a computer-based
+				information system.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Enterprise_software"
+						rel="external">Enterprise software</a
+					></cite
+				>
+			</dd>
+			<dt id="esg">
+				<dfn>Environmental, social, and corporate governance</dfn> (<abbr
+					title="environmental, social, and corporate governance">ESG</abbr
+				>)
+			</dt><dd>
+				<strong>Environmental, social, and corporate governance</strong>
+				 (ESG), also known as environmental, social, and governance, is a set of
+				aspects considered when investing in companies, that recommends taking
+				environmental issues, social issues and corporate governance issues into
+				account.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Environmental,_social,_and_corporate_governance"
+						rel="external">Environmental, social, and corporate governance</a
+					></cite
+				>
+			</dd>
+			<dt id="exitprise"><dfn>exitprise</dfn></dt><dd>
+				<strong>Exitprise</strong> is a term we coined to contrast with <a
+					href="/glossary/e#eas"
+					rel="glossary">enterprise</a
+				>. We believe that most enterprise software is over-engineered,
+				overwrought, far more complex than it has any right to be, and pricey.
+				In most circumstances, <em
+					>you aren{apos}t gonna need it (<a
+						href="/glossary/y#yagni"
+						rel="glossary">YAGNI</a
+					>)</em
+				>. And most enterprise processes are also overly-complex and wasteful.
+				YAGNI again.
+			</dd><dd>
+				Exitprise says keep it simple, never write any code until you absolutely
+				need it, and write it yourself whenever possible. Focus on ad hoc
+				collaboration not arbitrary teams. Avoid process as much as practicable.
+				Get stuff done.
+			</dd>
+			<dt id="external-dependencies"><dfn>external dependencies</dfn></dt><dd>
+				<strong>External dependencies</strong> are libraries of code not written
+				by you that you import into your code to avoid having to code them
+				yourself.
+			</dd><dd>
+				The obvious benefits of external dependencies are to save time (the code
+				is already written) and to acquire code that might be beyond your
+				ability to write yourself.
+			</dd><dd>
+				The detriments should be equally obvious: you have little or no control
+				over the code. Hence, you cannot be sure that it is <strong
+					>secure or well-tested</strong
+				>. You can only configure what they give you. If a feature is lacking,
+				you are pretty much out of luck.
+			</dd><dd>
+				Worse, because the code must suit a wide variety of circumstances, it
+				tends to be complex, bloated, and overly abstracted: one-size-fits-all
+				[sic]. In contrast, code you write yourself can be very efficient: no
+				wasted lines.
+			</dd>
+		</dl>
+	</Article>
+</Layout>

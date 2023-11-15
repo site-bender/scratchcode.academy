@@ -1,0 +1,172 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ellipsis: ellip, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryo",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/lNJdTqsihYCN9Z7LmfrytxCp",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-o/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		O is for Occam${CHARS.apostrophe}s Razor: the glossary page for terms beginning with
+		O for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"OOP",
+		`Occam${CHARS.apostrophe}s Razor`,
+		"OSS",
+		"overengineering",
+	],
+	label: `O is for Occam${CHARS.apostrophe}s Razor`,
+	next: "/glossary/p",
+	pageTitle: `O is for Occam${CHARS.apostrophe}s Razor ~ ScratchCode glossary`,
+	prev: "/glossary/n",
+	title: `O is for Occam${CHARS.apostrophe}s Razor`,
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="oop">
+				<dfn>Object-Oriented Programming</dfn>
+			</dt><dd>
+				<strong>Object-oriented programming</strong> (OOP) is a programming
+				paradigm based on the concept of objects, which can contain data and
+				code: data in the form of fields (often known as attributes or
+				properties), and code in the form of procedures (often known as
+				methods).
+			</dd><dd>
+				A common feature of objects is that methods are attached to them and can
+				access and modify the object{apos}s data fields. In this brand of OOP,
+				there is usually a special name such as <code>this</code> or <code
+					>self</code
+				> used to refer to the current object.
+			</dd><dd>
+				See also <a href="/glossary/f#fp" rel="glossary"
+					>Functional Programming</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Object-oriented_programming"
+						rel="external">Object-oriented programming</a
+					></cite
+				>
+			</dd>
+			<dt id="occams-razor"><dfn>Occam{apos}s Razor</dfn></dt><dd>
+				<strong>Occam{apos}s razor</strong>{" "}
+				{ellip} is the problem-solving principle that recommends searching for
+				explanations constructed with the smallest possible set of elements. It
+				is also known as the <strong>principle of parsimony</strong> or the <strong
+					>law of parsimony</strong
+				>.
+			</dd><dd>
+				Attributed to <a
+					href="https://en.wikipedia.org/wiki/William_of_Ockham"
+					rel="external">William of Ockham</a
+				>, a 14th-century English philosopher and theologian, it is frequently
+				cited as <em lang="la"
+					>{ldquo}Entia non sunt multiplicanda praeter necessitatem{rdquo}</em
+				>, which translates as {ldquo}Entities must not be multiplied beyond
+				necessity{rdquo}, although Occam never used these exact words.
+			</dd><dd>
+				Note: many people paraphrase Occam{apos}s Razor as {ldquo}The simplest
+				solution is the best one{rdquo}. But this is incorrect as it ignores the
+				key words {ldquo}beyond necessity{rdquo}. A correct paraphrase is:
+			</dd>
+			<dd>
+				<strong
+					>The simpler solution <em>all else being equal</em> is the better one.</strong
+				>
+			</dd><dd>
+				In short, if two solutions solve the problem equally, choose the simpler
+				one. If not, choose the better solution.
+			</dd><dd>
+				See also <a href="/glossary/k#kiss" rel="glossary">KISS</a>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Occam%27s_razor"
+						rel="external">Occam{apos}s razor</a
+					></cite
+				>
+			</dd>
+			<dt id="oss">
+				<dfn>open-source software</dfn> (<abbr title="Open-Source Software"
+					>OSS</abbr
+				>)
+			</dt><dd>
+				<strong>Open-source software</strong> (OSS) is computer software that is
+				released under a license in which the copyright holder grants users the
+				rights to use, study, change, and distribute the software and its source
+				code to anyone and for any purpose.
+			</dd><dd>
+				Open-source software may be developed in a <strong
+					>collaborative, public manner</strong
+				>.
+			</dd><dd>
+				Open-source software is a prominent example of open collaboration,
+				meaning any capable user is able to participate online in development,
+				making the number of possible contributors indefinite. The ability to
+				examine the code facilitates public trust in the software.
+			</dd><dd>
+				Use of open-source software is an important component of <a
+					href="/glossary/s#sustainable-web-development"
+					rel="glossary">sustainable web development</a
+				>. <strong>ScratchCode</strong> strongly supports open-source software,
+				transparency, collaboration, and sustainability.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Open-source_software"
+						rel="external">Open-source software</a
+					></cite
+				>
+			</dd>
+			<dt id="overengineering"><dfn>overengineering</dfn></dt><dd>
+				<strong>Overengineering</strong> (or over-engineering) is the act of
+				designing a product or providing a solution to a problem in an elaborate
+				or complicated manner, where a simpler solution can be demonstrated to
+				exist with the same efficiency and effectiveness as that of the original
+				design.
+			</dd><dd>
+				See also <a href="/glossary/f#fp" rel="glossary"
+					>Functional Programming</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Overengineering"
+						rel="external">Overengineering</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

@@ -1,0 +1,88 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfeedbacksuccess",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/BooYzaOVstgxVv2oLg2VkOio",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-feedback-success/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Success! Your feedback has been sent to us at ScratchCode.
+			We will get right on it. If you included your email address,
+			we will do our best to respond quickly. Thanks for your help!
+		`),
+		version,
+	}),
+	label: "Feedback form success",
+	next: "/feedback",
+	pageTitle: "Feedback form success  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Feedback form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Success!</h1>
+		</header>
+		<p>
+			Our server sent your feedback to us at ScratchCode. We{apos}ll get right
+			on it.
+		</p>
+		<p>Thanks much for your help!</p>
+		<Figure caption={`We${CHARS.apostrophe}re gonna fix this!`}>
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/success-feedback.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			If you provided an email address to permit a personal response, then <mark
+				>we will respond ASAP.</mark
+			> We may also have questions.
+		</p>
+		<p>
+			Of course, we will ignore spam, trolls, abuse, etc., and will ban
+			offending email addresses. Who has time for that nonsense?
+		</p>
+		<p>
+			If you don{apos}t hear from us within a few days, consider resending your
+			issue. It is possible that it never got to us.
+		</p>
+		<p>
+			We appreciate your efforts to help make the craft code site a better
+			resource for craft coders. <strong>Our most sincere thanks.</strong> If we
+			do not serve our audience well, then this will have been a great deal of
+			effort for naught.
+		</p>
+	</Article>
+</Layout>

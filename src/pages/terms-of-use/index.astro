@@ -1,0 +1,247 @@
+---
+import { CHARS } from "~constants";
+import {
+	Article,
+	BooleanField,
+	Button,
+	ButtonBar,
+	EmailField,
+	Fieldset,
+	Form,
+	Honeypot,
+	StringField,
+	TimeToRead,
+} from "@sitebender/components";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/terms-of-use";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyterms-of-use",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/e0Bg2hkjYRqX7WwqZEQ5WBH0",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-terms-of-use/",
+			percentage: 99,
+		},
+	},
+	...getters,
+	label: "Terms",
+	next: "/cookie-policy",
+	pageTitle: "Our terms of use (disclaimer) ~ ScratchCode",
+	prev: "/privacy-policy",
+	title: "Our terms of use",
+};
+
+const { getArticleData, title } = metadata;
+const article = getArticleData ? getArticleData("") : undefined;
+---
+
+<Layout {metadata} noSubscribe {title}>
+	<Article id="main-content" {title}>
+		<TimeToRead {article} />
+		<p>By viewing and using this site, you agree to these terms of use.</p>
+		<p>
+			Note: you can <strong
+				>buy a license for commercial use of this content</strong
+			>. Use the form below or email us at <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject="[ScratchCode commercial license] "
+			/> for more information.
+		</p>
+		<section id="agreement-to-terms">
+			<header>
+				<h2>Agreement to terms of use</h2>
+			</header>
+			<p>
+				Welcome to Craft-Code.dev (the <q>site</q>), a website hosted and
+				operated by ScratchCode Limited (<q>we</q>, <q>our</q>, ScratchCode).
+			</p>
+			<p>These terms apply to:</p>
+			<ol>
+				<li>the entire contents of the site</li>
+				<li>to any web feeds produced by the site</li>
+				<li>to any feedback or submissions provided through the site</li>
+			</ol>
+			<p>
+				By viewing and using the site, you agree to these <em>terms of use</em>.
+			</p>
+			<section id="disclaimer">
+				<header>
+					<h2>Disclaimer</h2>
+				</header>
+				<p>ScratchCode disclaims and excludes all liability for any</p>
+				<ol>
+					<li>claim</li>
+					<li>loss</li>
+					<li>
+						demand or damages of any kind whatsoever (including for negligence)
+					</li>
+				</ol>
+				<p>
+					that arise out of or in connection with the use of either this website
+					or the
+				</p>
+				<ol>
+					<li>information</li>
+					<li>content</li>
+					<li>or materials</li>
+				</ol>
+				<p>included on this site or on any website we link to.</p>
+			</section>
+			<section id="continuity-of-service">
+				<header>
+					<h2>Continuity of service</h2>
+				</header>
+				<p>
+					ScratchCode makes no warranty or representation, express or implied,
+					about continuity of service. We reserve the right to suspend, end, or
+					otherwise alter access to some or all the site{apos}s services. We may
+					do so at any time and without notice.
+				</p>
+			</section>
+			<section id="your-information">
+				<header>
+					<h2>Your information</h2>
+				</header>
+				<p>
+					We may treat any material you send or post publicly to the site as
+					non-confidential. This includes feedback or submissions you provide.
+					It excludes personal information covered in our <a
+						href="/privacy-policy">privacy policy</a
+					>.
+				</p>
+			</section>
+			<section id="copyright">
+				<header>
+					<h2>Copyright</h2>
+				</header>
+				<p>
+					<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+						>Attribution-NonCommercial-ShareAlike 4.0 International</a
+					> (CC BY-NC-SA 4.0). That{apos}s our license. This license protects
+					all content on the
+					<a href="https://scratchcode.academy/">Craft-Code</a> site. Follow the
+					link for more details.
+				</p>
+				<p>
+					Under the terms of the <abbr
+						title="Attribution-NonCommercial-ShareAlike 4.0 International"
+						>CC BY-NC-SA 4.0</abbr
+					> license, you must attribute the content borrowed from us to
+					Craft-Code.dev. You may <strong>not</strong> repurpose it for
+					commercial use.
+				</p>
+				<p>We recognize fair use, of course, with attribution.</p>
+			</section>
+			<section id="revisions-to-these-terms-of-use">
+				<header>
+					<h2>Revisions to terms of use</h2>
+				</header>
+				<p>
+					ScratchCode may revise these terms of use at any time. Any such
+					revisions take effect upon publication here of the revised terms.
+				</p>
+				<p>
+					<a href="/contact">Contact us</a> for further information.
+				</p>
+			</section>
+			<section id="our-true-feelings-about-all-this">
+				<header>
+					<h2>Our true feelings about all this</h2>
+				</header>
+				<p>
+					It makes us sad that this labor of love even needs terms of use. We
+					have no desire to act with impunity.
+				</p>
+				<p>
+					But the World Wide Web is more like the Wild, Wild West. There are so
+					many things that could go wrong over which we have no control
+					whatsoever.
+				</p>
+			</section>
+			<p>
+				<strong>We can{apos}t afford the risk.</strong> To produce this site at
+				all, we must limit our liability. We apologize that this is the case.
+				But without these terms we cannot justify the risk to our lives and
+				futures.
+			</p>
+			<p>
+				We{apos}ve taken every precaution we could think of to protect both you,
+				dear reader, and us. And in good faith. But in the end, you use this
+				site at your own risk. We hope that you understand.
+			</p>
+			<p>
+				If you have any questions, feel free to contact us using the form below.
+			</p>
+		</section>
+		<Form
+			action="/api/contact"
+			method="post"
+			name="contactForm"
+			validation="default"
+		>
+			{
+				({ form }: { form: string }) => (
+					<>
+						<Fieldset label="Talk to us">
+							<StringField
+								cols={48}
+								{form}
+								label="Compose your message"
+								message="We read them all and respond when we can."
+								name="message"
+								required
+								rows={8}
+								value=""
+							/>
+							<EmailField
+								{form}
+								label="Provide your email address"
+								message={`We can${CHARS.apostrophe}t respond without one.`}
+								name="emailAddress"
+								required
+								size={32}
+								value=""
+							/>
+							<StringField
+								{form}
+								label="Add your name"
+								message={`So we don${CHARS.apostrophe}t call you ${CHARS.ldquo}buddy${CHARS.rdquo} ${CHARS.ellipsis}`}
+								name="name"
+								size={32}
+								value=""
+							/>
+							<BooleanField
+								{form}
+								label="Notify me when you publish new articles."
+								name="wantsUpdates"
+								value="yes"
+							/>
+						</Fieldset>
+						<ButtonBar {form}>
+							<Button {form} type="submit">
+								Send your message
+							</Button>
+						</ButtonBar>
+						<Honeypot {form} password="samizdat" />
+					</>
+				)
+			}
+		</Form>
+	</Article>
+</Layout>

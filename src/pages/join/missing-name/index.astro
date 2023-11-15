@@ -1,0 +1,107 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyjoinmissing-name",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/nNUXA30PKqmhkYtQFXgZbyDJ",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-join-missing-name/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			We were unable to process your join us form submission
+			because your name was missing. Please provide your name
+			and resubmit the form. We need a name to sign you up!
+		`),
+		version,
+	}),
+	label: "Join us form missing name",
+	next: "/join",
+	pageTitle: "Join us form missing name  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Join us form", "Missing name"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Uh, oh</h1>
+		</header>
+		<p><mark>Your name has gone missing!</mark></p>
+		<p>
+			We got your form submission. But we <strong>could not find a name</strong
+			>. Without your name, we are bereft. How will we address you?
+		</p>
+		<p>
+			Our stubborn server refused to proceed without your name. <strong
+				>We did not receive your submission.</strong
+			>
+		</p>
+		<p>
+			This is an automated process: <strong
+				>no human has seen your submission yet.</strong
+			>
+		</p>
+		<Figure caption="Oops.">
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/missing-message.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			Please use your browser{apos}s <strong>back button</strong> to return to
+			the <strong>join us form.</strong> Then add your name and re-submit the
+			form.
+		</p>
+		<p>
+			Or send an email to <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject={getSubject(metadata.title)}
+			/> if you believe that you received this message in error. You can also
+			use our <a href="/feedback">feedback form</a>.
+		</p>
+		<p>
+			If you do email us, then please put <strong
+				>{getSubject(metadata.title)}</strong
+			> in the subject line.
+		</p>
+		<p>
+			We do want to hear from you, so we hope we can get this straightened out.
+			If we have somehow screwed this up or there is something that we could do
+			better, then please do let us know. <strong
+				>But please do keep trying.</strong
+			>
+		</p>
+		<p>The ScratchCode Community wants YOU.</p>
+	</Article>
+</Layout>

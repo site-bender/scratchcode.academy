@@ -1,0 +1,77 @@
+---
+import Layout from "~layouts/index.astro";
+import {
+	Article,
+	collapseWhitespace,
+	generateShortId,
+} from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossary",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/QYdJy5HTfk40LE5BD1wEdYFv",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		Table of contents for the glossary of terms for the ScratchCode
+		website. Craft code is code made with care, skill, and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"glossary of terms",
+		"web terminology",
+		"computer terminology",
+		"definition",
+		"acronym",
+	],
+	label: "Glossary",
+	pageTitle: "Glossary of terms ~ ScratchCode",
+	title: "Glossary of terms",
+};
+
+const { title } = metadata;
+const id = generateShortId();
+
+const pages = await Astro.glob("./**/index.astro");
+
+const links = pages.map(({ metadata, url }) => [metadata.label, url]);
+---
+
+<Layout {metadata} title={metadata.pageTitle}>
+	<Article id="main-content" {title}>
+		<nav class="sb-toc" aria-labelledby={id}>
+			<h2 {id} class="sb-toc-header sb-off-screen">
+				Glossary pages by first letter
+			</h2>
+			<p>
+				Find here the key terms used on the ScratchCode site. <a
+					href="/feedback">Let us know</a
+				> if we are missing any or got one wrong.
+			</p>
+			<ul class="sb-toc-list" role="presentation" style="list-style-type: none">
+				{
+					links.map(([label, path]) => (
+						<li>
+							<a href={path}>{label}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</Article>
+</Layout>

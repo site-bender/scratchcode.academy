@@ -1,0 +1,229 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryp",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/XNj8XzQbcw8DwUcCT58usGcI",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-p/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		P is for polemic: the glossary page for terms beginning with
+		P for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"polemic",
+		"polyfill",
+		"premature optimization",
+		"premature reification",
+		"Principle of Least Power",
+		"problem space",
+		"progressive enhancement",
+		"PoC",
+		"prototyping",
+	],
+	label: "P is for polemic",
+	next: "/glossary/q",
+	pageTitle: "P is for polemic ~ ScratchCode glossary",
+	prev: "/glossary/o",
+	title: "P is for polemic",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="polemic"><dfn>polemic</dfn></dt><dd>
+				<strong>Polemic</strong> is contentious rhetoric intended to support a
+				specific position by forthright claims and to undermine the opposing
+				position. The practice of such argumentation is called <strong
+					>polemics</strong
+				>, which are seen in arguments on controversial topics. A person who
+				writes polemics, or speaks polemically, is called a <strong
+					>polemicist</strong
+				>.
+			</dd><dd>
+				Note: many people confuse polemics with <strong>rants</strong>. But a
+				polemic, while often angry, is a rational, principled argument. In
+				contrast, a rant is a stubborn, emotional outburst, often irrational.
+			</dd><dd>
+				At ScratchCode we polemicize. We <strong>never</strong> rant. Our views
+				are rational and supported by evidence and argument. We may be wrong
+				occasionally, but we are neither stubborn nor irrational. Prove us wrong
+				and we will happily change our views. Try us.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Polemic"
+						rel="external">Polemic</a
+					></cite
+				>
+			</dd>
+			<dt id="polyfill"><dfn>polyfill</dfn></dt><dd>
+				In software development, a <strong>polyfill</strong> is code that
+				implements a feature of the development environment that does not
+				natively support the feature. Most often, it refers to a <a
+					href="/glossary/j#javascript"
+					rel="glossary">JavaScript</a
+				> library that implements an <a href="/glossary/h#html" rel="glossary"
+					>HTML5</a
+				>
+				 or
+				<a href="/glossary/c#css" rel="glossary">CSS</a> web standard, either an
+				established standard (supported by some <a
+					href="/glossary/b#browser"
+					rel="glossary">browsers</a
+				>) on older browsers, or a proposed standard (not supported by any
+				browsers) on existing browsers.
+			</dd><dd>
+				Formally, {ldquo}a polyfill is a
+				<a href="/glossary/s#shim" rel="glossary">shim</a> for a browser <a
+					href="/glossary/a#api"
+					rel="glossary">API</a
+				>.{rdquo}
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Polyfill_(programming)"
+						rel="external">Polyfill (programming)</a
+					></cite
+				>
+			</dd>
+			<dt id="premature-optimization">
+				<dfn>premature optimization</dfn>
+			</dt><dd>
+				<strong>Premature optimization</strong> is a phrase used to describe a
+				situation where a programmer lets performance considerations affect the
+				design of a piece of code. This can result in a design that is not as
+				clean as it could have been or code that is incorrect, because the code
+				is complicated by the optimization and the programmer is distracted by
+				optimizing.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Program_optimization"
+						rel="external">Program optimization</a
+					></cite
+				>
+			</dd>
+			<dt id="premature-reification"><dfn>premature reification</dfn></dt><dd>
+				To {ldquo}reify{rdquo} means to <em>make real or concrete</em>.
+				<strong>Premature reification</strong> occurs when we rush to
+				completion, turning potential into reality sooner than we need to. It
+				often leads to wasted time, effort, and money.
+			</dd><dd>
+				For example, we might know that eventually we will need a certain
+				widget, so we go ahead and build it. But then later it turns out that we
+				didn{apos}t need it after all. Or we did, but the way we built it was
+				all wrong. Doh!
+			</dd>
+			<dt id="principle-of-least-power">
+				<dfn>Principle of Least Power</dfn>
+			</dt><dd>
+				The <strong>Principle of Least Power</strong> states that when writing
+				software, we should always use the least powerful approach that solves
+				the problem. Don{apos}t over-engineer. Don{apos}t over-abstract or
+				abstract too soon. Stay low on the tree of abstraction and keep it
+				simple.
+			</dd>
+			<dt id="problem-space"><dfn>problem space</dfn></dt><dd>
+				The <strong>problem space</strong> is the problem and everything
+				associated with the problem, including such things as the history of the
+				problem; the stakeholders (those who benefit from the problem, those who
+				contribute to the problem, and those who feel the problem most deeply,
+				as pain).
+			</dd><dd>
+				See also <a href="/glossary/s#solution-space" rel="glossary"
+					>solution space</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://writingcommons.org/section/rhetoric/rhetorical-situation/occasion-exigency/problem-space/"
+						rel="external"
+						>Problem Space, Solution Space
+					</a></cite
+				>
+			</dd>
+			<dt id="progressive-enhancement">
+				<dfn>progressive enhancement</dfn>
+			</dt><dd>
+				<strong>Progressive enhancement</strong> is a design philosophy that
+				provides a baseline of essential content and functionality to as many
+				users as possible, while delivering the best possible experience only to
+				users of the most modern browsers that can run all the required code.
+			</dd><dd>
+				The word progressive in progressive enhancement means creating a design
+				that achieves a simpler-but-still-usable experience for users of older
+				browsers and devices with limited capabilities, while at the same time
+				being a design that progresses the user experience up to a more
+				compelling, fully-featured experience for users of newer browsers and
+				devices with richer capabilities.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement"
+						rel="external">Progressive Enhancement</a
+					></cite
+				>
+			</dd>
+			<dt id="poc">
+				<dfn>Proof of Concept</dfn> (<abbr title="proof of concept">PoC</abbr>)
+			</dt><dd>
+				<strong>Proof of concept</strong> (POC or PoC), also known as <strong
+					>proof of principle</strong
+				>, is a realization of a certain method or idea in order to demonstrate
+				its feasibility, or a demonstration in principle with the aim of
+				verifying that some concept or theory has practical potential.
+			</dd><dd>
+				A proof of concept is usually small and may or may not be complete.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Proof_of_concept"
+						rel="external">Proof of concept</a
+					></cite
+				>
+			</dd>
+			<dt id="prototyping"><dfn>prototyping</dfn></dt><dd>
+				Software <strong>prototyping</strong> is the activity of creating
+				prototypes of software applications, i.e., incomplete versions of the
+				software program being developed. It is an activity that can occur in
+				software development and is comparable to prototyping as known from
+				other fields, such as mechanical engineering or manufacturing.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Software_prototyping"
+						rel="external">Software prototyping</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

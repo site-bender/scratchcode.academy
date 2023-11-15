@@ -1,0 +1,101 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos, ellipsis: ellip } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: null,
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/de0WhovuRCJ5NkoZYVuOe85M",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-subscribe-thank-you/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			You are confirmed! You will now receive updates from
+			ScratchCode depending on what sorts of updates you requested.
+			Thanks much for your interest. Don${CHARS.apostrophe}t worry,
+			you can unsubscribe whenever you wish.
+		`),
+		version,
+	}),
+	label: "Thank you",
+	pageTitle: "Thank you  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Get notified form", "Thank you"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Thank you!</h1>
+		</header>
+		<p>
+			We got your request to connect with ScratchCode in whichever manner or
+			manners you chose. This might include updates, join us, get listed as a
+			ScratchCoder, and more.
+		</p>
+		<p><mark>You{apos}re in!</mark></p>
+		<p>
+			If your form submission expects a response, then we{apos}ll do our best to
+			get right on it.
+		</p>
+		<Figure caption="Welcome to the acme of coding!">
+			<img
+				alt=""
+				height="360"
+				src="/images/iconic/craft-is-its-own-reward.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			We hope you{apos}ll become a key part of the ScratchCode community. But
+			you are also welcome to opt out at any time. Communications from us will
+			contain a plain and obvious <strong>unsubscribe link.</strong>
+		</p>
+		<p>
+			What{apos}s more, you can always contact us via our <a href="/contact"
+				>contact form</a
+			> to change your status. Anytime.
+		</p>
+		<p>
+			And you can report bugs, make suggestions, or just complain via our <a
+				href="/feedback">feedback</a
+			> form.
+		</p>
+		<p>
+			Thanks much for your interest! We are growing craft code into a serious
+			and noteworthy, we hope, community of craft coders. Consider <a
+				href="/join">joining us</a
+			> if you haven{apos}t already.
+		</p>
+		<p>
+			You might begin your adventure with a bit of <a href="/essays"
+				>light reading</a
+			>{" "}
+			{ellip}
+		</p>
+	</Article>
+</Layout>

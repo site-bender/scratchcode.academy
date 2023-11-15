@@ -1,0 +1,323 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { md } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryw",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/aHamcjDcN6CYU6noh4kpqEUq",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-w/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		W is for the Web: the glossary page for terms beginning with
+		W for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"WAI",
+		"web analytics",
+		"web APIs",
+		"web application",
+		"WCAG",
+		"web development",
+		"WSG",
+		"WHATWG",
+		"wireframe",
+		"workaround",
+		"W3C",
+		"WWW",
+	],
+	label: "W is for the Web",
+	next: "/glossary/x",
+	pageTitle: "W is for the Web ~ ScratchCode glossary",
+	prev: "/glossary/y",
+	title: "W is for the Web",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="wai">
+				<dfn>Web Accessibility Initiative</dfn> (<abbr
+					title="Web Accessibility Initiative">WAI</abbr
+				>)
+			</dt><dd>
+				The <a href="/glossary/w#w3c" rel="glossary"
+					>World Wide Web Consortium</a
+				>
+				 (W3C)ʼs
+				<strong>Web Accessibility Initiative</strong> (WAI) is an effort to
+				improve the accessibility of the <a
+					href="/glossary/w#www"
+					rel="glossary">World Wide Web</a
+				> for people with disabilities.
+			</dd><dd>
+				People with disabilities encounter difficulties when using computers
+				generally, but also on the Web. Since they often require non-standard
+				devices and browsers, making websites more accessible also benefits a
+				wide range of
+				<a href="/glossary/u#user-agent" rel="glossary">user agents</a> and
+				devices, including mobile devices, which have limited resources.
+			</dd><dd>
+				According to a US government study, <strong>71%</strong> of website
+				visitors with disabilities will leave a website that is not accessible.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Web_Accessibility_Initiative"
+						rel="external">Web Accessibility Initiative</a
+					></cite
+				>
+			</dd>
+			<dt id="web-analytics"><dfn>web analytics</dfn></dt><dd>
+				<strong>Web analytics</strong> is the measurement, collection, analysis,
+				and reporting of web data to understand and optimize web usage. Web
+				analytics is not just a process for measuring web traffic but can be
+				used as a tool for business and market research and assess and improve
+				website effectiveness.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Web_analytics"
+						rel="external">Web analytics</a
+					></cite
+				>
+			</dd>
+			<dt id="web-apis"><dfn>Web APIs</dfn></dt><dd>
+				When writing code for the Web, there are a large number of <strong
+					>Web APIs</strong
+				>
+				 available. Web APIs are typically used with <a
+					href="/glossary/j#javascript"
+					rel="glossary">JavaScript,</a
+				>
+				 although this doesnʼt always have to be the case.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/API"
+						rel="external">Web APIs</a
+					></cite
+				> (complete list)
+			</dd>
+			<dt id="web-app"><dfn>web application</dfn></dt><dd>
+				A <strong>web application</strong> (or web app) is application software
+				that is accessed using a web browser. Web applications are delivered on
+				the
+				<a href="/glossary/w#www" rel="glossary">World Wide Web</a> to users
+				with an active network connection.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Web_application"
+						rel="external">Technical debt</a
+					></cite
+				>
+			</dd>
+			<dt id="wcag">
+				<dfn>Web Content Accessibility Guidelines</dfn> (<abbr
+					title="Web Content Accessibility Guidelines">WCAG</abbr
+				>)
+			</dt><dd>
+				The <strong>Web Content Accessibility Guidelines</strong> (WCAG) are
+				part of a series of web accessibility guidelines published by the <a
+					href="/glossary/w#wai"
+					rel="glossary">Web Accessibility Initiative</a
+				> (WAI) of the
+				<a href="/glossary/w#w3c" rel="glossary">World Wide Web Consortium</a>
+				 (W3C), the main international standards organization for the Internet.
+			</dd><dd>
+				They are a set of recommendations for making Web content more
+				accessible, primarily for people with disabilities{md}but also for all
+				<a href="/glossary/u#user-agent" rel="glossary">user agents</a>,
+				including highly limited devices, such as mobile phones.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines"
+						rel="external">Web Content Accessibility Guidelines</a
+					></cite
+				>
+			</dd>
+			<dt id="web-dev"><dfn>web development</dfn></dt><dd>
+				<strong>Web development</strong> is the work involved in developing a
+				website for the <a href="/glossary/i#internet" rel="glossary"
+					>internet</a
+				> (i.e., the <a href="/glossary/w#www" rel="glossary">World Wide Web</a
+				>) or an intranet (a private network). Web development can range from
+				developing a simple single static page of plain text to complex
+				<a href="/glossary/w#web-app" rel="glossary">web applications</a>,
+				electronic businesses, and <a
+					href="/glossary/s#social-media"
+					rel="glossary">social network</a
+				>
+				 services.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Web_development"
+						rel="external">Web development</a
+					></cite
+				>
+			</dd>
+			<dt id="wsg">
+				<dfn>Web Sustainability Guidelines</dfn> (<abbr
+					title="Web Sustainability Guidelines">WSG</abbr
+				>)
+			</dt><dd>
+				<strong>Web Sustainability Guidelines</strong> (WSG) 1.0 covers a wide
+				range of recommendations for making websites and products more
+				sustainable.
+			</dd><dd>
+				Following these guidelines which utilize environment, social, and
+				governance (ESG) principles throughout the decision-making processes,
+				you can minimize your environmental impact through a mixture of
+				user-centered design, performant web development, renewable
+				infrastructure, sustainable business strategy, and (with metrics)
+				various combinations of those mentioned.
+			</dd><dd>
+				<cite
+					>Source: <a href="https://w3c.github.io/sustyweb/" rel="external"
+						>Web Sustainability Guidelines (WSG) 1.0</a
+					></cite
+				>
+			</dd>
+			<dt id="whatwg"><dfn>WHATWG</dfn></dt><dd>
+				The <strong>Web Hypertext Application Technology Working Group</strong>
+				 (<a href="https://whatwg.org/" rel="external">WHATWG</a>) is a
+				community of people interested in evolving <a
+					href="/glossary/h#html"
+					rel="glossary">HTML</a
+				>
+				 and related technologies. The WHATWG was founded by individuals from
+				Apple Inc., the Mozilla Foundation, and Opera Software{md}leading Web
+				<a href="/glossary/b#browser" rel="glossary">browser</a> vendors{md}in
+				2004.
+			</dd><dd>
+				WHATWG is responsible for maintaining multiple web-related technical
+				standards, including the specifications for the <a
+					href="/glossary/h#html"
+					rel="glossary">HyperText Markup Language</a
+				> (HTML) and the
+				<a href="/glossary/d#dom" rel="glossary">Document Object Model</a>
+				 (DOM).
+			</dd><dd>
+				<cite
+					>Source: <a href="https://en.wikipedia.org/wiki/WHATWG" rel="external"
+						>WHATWG</a
+					></cite
+				>
+			</dd>
+			<dt id="wireframe"><dfn>wireframe</dfn></dt><dd>
+				A website <strong>wireframe</strong>, also known as a page schematic or
+				screen blueprint, is a visual guide that represents the skeletal
+				framework of a website. The term wireframe is taken from other fields
+				that use a skeletal framework to represent three-dimensional shape and
+				volume
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Website_wireframe"
+						rel="external">Website wireframe</a
+					></cite
+				>
+			</dd>
+			<dt id="workaround"><dfn>workaround</dfn></dt><dd>
+				A <strong>workaround</strong> offers a temporary solutions so that
+				developers can focus on other (more important) tasks. The developers
+				must ensure that appropriate effort is undertaken to identify the
+				problem and determine the effectiveness of the workaround at a later
+				stage.
+			</dd><dd>
+				The problem associated with workarounds is when they are not flexible
+				enough to meet future demands and pressures. There is a fine line
+				between a workaround to meet a deadline, and taking shortcuts on code
+				quality.
+			</dd><dd>
+				Many developers would argue that workarounds are really just an excuse
+				for improper business goals and fast-tracked development schedules and
+				could be avoided if there were <a href="/methods/plan-properly"
+					>proper planning</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://www.techopedia.com/definition/14634/workaround"
+						rel="external">Workaround</a
+					></cite
+				>
+			</dd>
+			<dt id="w3c">
+				<dfn>World Wide Web Consortium</dfn> (<a
+					href="https://www.w3.org"
+					rel="external"
+					title="World Wide Web Consortium">W3C</a
+				>)
+			</dt><dd>
+				The <strong>World Wide Web Consortium</strong> (W3C) is the main
+				international standards organization for the World Wide Web. Founded in
+				1994 and led by Tim Berners-Lee, the consortium is made up of member
+				organizations that maintain full-time staff working together in the
+				development of standards for the World Wide Web.
+			</dd><dd>
+				W3C also engages in education and outreach, develops software, and
+				serves as an open forum for discussion about the <a
+					href="/glossary/w#www"
+					rel="glossary">Web</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium"
+						rel="external">World Wide Web Consortium</a
+					></cite
+				>
+			</dd>
+			<dt id="www">
+				<dfn>World Wide Web</dfn> (<abbr title="World Wide Web">WWW</abbr>)
+			</dt><dd>
+				The <strong>World Wide Web</strong>{md}commonly referred to as <strong
+					>WWW</strong
+				>,
+				<strong>W3</strong>, or the <strong>Web</strong>{md}is a system of
+				interconnected public webpages accessible through the <a
+					href="/glossary/i#internet"
+					rel="glossary">internet</a
+				>. The Web is
+				<strong>not</strong> the same as the internet: the Web is one of many
+				applications built <em>on top of</em> the internet.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/World_Wide_Web"
+						rel="external">World Wide Web</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

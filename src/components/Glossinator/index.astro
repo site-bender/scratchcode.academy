@@ -1,0 +1,28 @@
+---
+import "./index.css"
+import { generateShortId } from "@sitebender/components"
+
+const { pathname } = Astro.url
+
+const path = pathname?.replace(/\/$/, "")
+
+const id = generateShortId()
+
+const letters = [
+	"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+	"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+]
+---
+
+<section class="sb-glossinator" aria-labelledby={id}>
+	<h2 {id} class="sb-off-screen">Glossary index</h2>
+	<ol class="sb-glossary-list">
+		{letters.map((letter) => {
+			if (path === `/glossary/${letter}`) {
+				return <li class="this-letter">{letter.toLocaleUpperCase()}</li>
+			}
+
+			return <li><a href={`/glossary/${letter}`}>{letter.toLocaleUpperCase()}</a></li>
+		})}
+	</ol>
+</section>

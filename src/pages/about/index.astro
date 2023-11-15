@@ -1,0 +1,56 @@
+---
+import { CHARS } from "~constants";
+import { Article, TimeToRead } from "@sitebender/components";
+import FourPlex from "~components/FourPlex/index.astro";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/about";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		// beacon: {
+		// 	href: "https://digitalbeacon.co/report/scratchcode-academyabout",
+		// 	firstCarbon: 0.013,
+		// 	grade: "A+",
+		// 	repeatCarbon: 0.007,
+		// },
+		// ecograder: {
+		// 	href: "https://ecograder.com/report/JEakbis493AneYH9VuMigJiF",
+		// 	score: 83,
+		// },
+		// webCarbon: {
+		// 	count: 0.01,
+		// 	href: "https://www.websitecarbon.com/website/scratchcode-academy-about/",
+		// 	percentage: 99,
+		// },
+	},
+	...getters,
+	keywords: [
+		"bespoke",
+		"craft code",
+		"craft",
+		"just-in-time",
+		"real-world",
+		"scratchcode",
+		"web development",
+	],
+	label: "About us",
+	next: "/contact",
+	pageTitle: "About our efforts ~ ScratchCode",
+	prev: "/",
+	title: "About the ScratchCode effort",
+};
+
+const { getArticleData, title } = metadata;
+const article = getArticleData ? getArticleData("") : undefined;
+---
+
+<Layout {metadata} {title}>
+	<Article id="main-content" {title}>
+		<TimeToRead {article} />
+		<p>Hi</p>
+	</Article>
+</Layout>

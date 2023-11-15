@@ -1,0 +1,84 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  getWebPageData: (version: string): WebPage => ({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    description: collapseWhitespace(`
+			Success! Your media inquiry regarding craft code has been
+			forwarded to us. We will get right on it! We very much
+			appreciate your interest in craft code and will do our
+			best to meet your needs.
+		`),
+    version,
+  }),
+  label: "Media inquiry form success",
+  next: "/media",
+  pageTitle: "Media inquiry form success",
+  robots: "noindex",
+  title: getFormTitle("Media inquiry form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+  <Article id="main-content">
+    <header class="article-header">
+      <h1>Success!</h1>
+    </header>
+    <p>
+      Our server sent <strong>your media inquiry</strong> to us at ScratchCode.
+      We will get right on it.
+    </p>
+    <p>Thanks much for your interest!</p>
+    <Figure caption="Everyone loves connection.">
+      <img
+        alt=""
+        height="360"
+        src="/images/iconic/make-intentions-clear.svg"
+        style="margin: auto"
+        width="360"
+      />
+    </Figure>
+    <p>
+      <mark>We will respond as soon as practicable.</mark> Of course, we will
+      ignore spam, trolls, abuse, etc., and will ban offending email addresses.
+      Who has time for that nonsense?
+    </p>
+    <p>
+      If you checked the box to <strong>sign up for notifications</strong>, then
+      we have also added your email address to our list. We will be notify you
+      whenever new content appears on the <a href="https://scratchcode.academy/"
+        >ScratchCode</a
+      > site. Nice!
+    </p>
+    <p>
+      If you did sign up, then you should receive a <strong
+        >confirmation email</strong
+      >. It{apos}s true: we have a list and <em
+        >we{apos}re checking it twice.</em
+      > Gonna find out who{apos}s naughty or nice.
+    </p>
+    <p>
+      <mark>You must click on the confirm button</mark> in that email to
+      complete the sign up process. If you do not, then you will not receive
+      notifications from ScratchCode.
+    </p>
+    <p>
+      It is awesome that you have expressed interest in our efforts. We want to
+      reach as many craft coders as possible. Our goal is to create a craft code
+      community to assist each other in preserving these hard-won skills. <strong
+        >Publicity helps a lot.</strong
+      >
+    </p>
+  </Article>
+</Layout>

@@ -1,0 +1,166 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryf",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/KfZA7AYqX5Uanin96mfqKBpd",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-f/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		F is for fit for purpose: the glossary page for terms beginning with
+		F for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"feature creep",
+		"findability",
+		"fit for purpose",
+		"front-end web development",
+		"function composition",
+		"functional programming",
+	],
+	label: "F is for fit for purpose",
+	next: "/glossary/g",
+	pageTitle: "F is for fit for purpose ~ ScratchCode glossary",
+	prev: "/glossary/e",
+	title: "F is for fit for purpose",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="feature-creep"><dfn>feature creep</dfn></dt><dd>
+				<strong>Feature creep</strong> is the excessive ongoing expansion or
+				addition of new features in a product, especially in computer software,
+				video games and consumer and business electronics. These extra features
+				go beyond the basic function of the product and can result in <strong
+					>software bloat and over-complication</strong
+				>, rather than simple design.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Feature_creep"
+						rel="external">Feature creep</a
+					></cite
+				>
+			</dd>
+			<dt id="findability"><dfn>findability</dfn></dt><dd>
+				<strong>Findability</strong> is the ease with which information
+				contained on a website can be found, both from outside the website
+				(using search engines and the like) and by users already on the website.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Findability"
+						rel="external">Findability</a
+					></cite
+				>
+			</dd>
+			<dt id="fit-for-purpose"><dfn>fit for purpose</dfn></dt><dd>
+				Something that is <strong>fit for purpose</strong> does what it is meant
+				to do.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://dictionary.cambridge.org/dictionary/english/fit-for-purpose"
+						rel="external">Cambridge Dictionary</a
+					></cite
+				>
+			</dd>
+			<dt id="flow-content"><dfn>flow content</dfn></dt><dd>
+				Flow content is a broad category that encompasses most elements that can
+				go inside the <code>&lt;body&gt;</code> element, including heading
+				elements, sectioning elements, phrasing elements, embedding elements,
+				interactive elements, and form-related elements. It also includes text
+				nodes (but not those that only consist of white space characters).
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content"
+						rel="external">Flow content (elements listed)</a
+					></cite
+				>
+			</dd>
+			<dt id="front-end-web-development">
+				<dfn>front-end web development</dfn>
+			</dt><dd>
+				<strong>Front-end web development</strong> is the development of the
+				<a href="/glossary/g#gui" rel="glossary">graphical user interface</a>
+				 of a website, through the use of
+				<a
+					href="/glossary/h#html"
+					rel="glossary"
+					title="HyperText Markup Language">HTML</a
+				>,
+				<a href="/glossary/c#css" rel="glossary" title="Cascading Style Sheets"
+					>CSS</a
+				>, and
+				<a href="/glossary/j#javascript" rel="glossary">JavaScript</a>, so that
+				users can view and interact with that website.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Front-end_web_development"
+						rel="external">Front-end web development</a
+					></cite
+				>
+			</dd>
+			<dt id="function-composition"><dfn>function composition</dfn></dt><dd>
+				In computer science, <strong>function composition</strong> is an act or
+				mechanism to combine simple functions to build more complicated ones.
+				Like the usual composition of functions in mathematics, the result of
+				each function is passed as the argument of the next, and the result of
+				the last one is the result of the whole.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)"
+						rel="external">Function composition (computer science)</a
+					></cite
+				>
+			</dd>
+			<dt id="fp">
+				<dfn>Functional Programming</dfn> (<abbr title="functional programming"
+					>FP</abbr
+				>)
+			</dt><dd>
+				In computer science, <strong>functional programming</strong> is a
+				programming paradigm where programs are constructed by applying and
+				composing functions. It is a declarative programming paradigm in which
+				function definitions are trees of expressions that map values to other
+				values, rather than a sequence of imperative statements which update the
+				running state of the program.
+			</dd><dd>Whew. Did you get all that? Easy peasy, right?</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Functional_programming"
+						rel="external">Functional programming</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

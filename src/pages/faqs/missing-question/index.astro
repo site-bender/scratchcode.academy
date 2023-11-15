@@ -1,0 +1,107 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfaqsmissing-question",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/xqnAP1DqvY3oSSYo13vtWRw1",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-faqs-missing-question/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			We were unable to process your FAQ form submission because
+			your question was missing. Please provide a question and
+			resubmit the form. We can do nothing without a question.
+		`),
+		version,
+	}),
+	label: "FAQ form missing question",
+	next: "/faqs",
+	pageTitle: "FAQ form missing question  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("FAQ form", "Missing question"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Uh, oh</h1>
+		</header>
+		<p><mark>Your message has gone missing.</mark></p>
+		<p>
+			We got your form submission. But we <strong
+				>could not find a question</strong
+			>. Without a question, we have nothing to which we may respond.
+		</p>
+		<p>
+			Our stubborn server refused to proceed without a question. <strong
+				>We did not receive your submission.</strong
+			>
+		</p>
+		<p>
+			This is an automated process: <strong
+				>no human has seen your submission yet.</strong
+			>
+		</p>
+		<Figure caption="Oops.">
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/missing-message.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			Please use your browser{apos}s <strong>back button</strong> to return to
+			the <strong>FAQ form.</strong> Then add your question or questions and
+			re-submit the form.
+		</p>
+		<p>
+			Or send an email to <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject={getSubject(metadata.title)}
+			/> if you believe that you received this message in error. You can also
+			use our <a href="/feedback">feedback form</a>.
+		</p>
+		<p>
+			If you do email us, then please put <strong
+				>{getSubject(metadata.title)}</strong
+			> in the subject line.
+		</p>
+		<p>
+			We do want to hear from you, so we hope we can get this straightened out.
+			We{apos}re dying to know what your question is. If we have somehow screwed
+			this up or there is something that we could do better, then please do let
+			us know.
+		</p>
+		<p><strong>Our sincere thanks for your efforts.</strong></p>
+	</Article>
+</Layout>

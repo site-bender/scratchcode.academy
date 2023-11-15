@@ -1,0 +1,73 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ldquo, md, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryz",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/d1mGAceR7SgiwxVCKVb0MRVx",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-z/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		Z is for zero day: the glossary page for terms beginning with
+		Z for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "zero-day exploit"],
+	label: "Z is for zero day",
+	next: "/glossary/z",
+	pageTitle: "Z is for zero day ~ ScratchCode glossary",
+	prev: "/glossary/x",
+	title: "Z is for zero day",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="zero-day-exploit">
+				<dfn>zero-day exploit</dfn>
+			</dt><dd>
+				A <strong>zero-day exploit</strong> is a type of computer attack that
+				exploits a software vulnerability before that vulnerability is known to
+				the public or the software's developer.
+			</dd><dd>
+				Zero-day exploits are very valuable to hackers and cybercriminals
+				because they are unknown{md}all systems running the affected software
+				are vulnerable, so the attack is likely to succeed.
+			</dd><dd>
+				The term {ldquo}zero-day{rdquo}
+				 refers to the idea that the developer has had zero days between
+				learning of the vulnerability and the attack occurring.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://techterms.com/definition/zerodayexploit"
+						rel="external">Zero Day Exploit</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

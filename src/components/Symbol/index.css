@@ -1,0 +1,16 @@
+:root {
+	--sb-symbol-foreground: #ff6a00;
+	--sb-symbol-background: #dfdfe2;
+}
+
+.sb-symbol {
+	line-height: 1.2;
+	margin: 0 0 0 -5px;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+	:root {
+		--sb-symbol-foreground: #ea00ff;
+		--sb-symbol-background: #131315;
+	}
+}

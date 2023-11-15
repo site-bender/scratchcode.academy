@@ -1,0 +1,94 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  getWebPageData: (version: string): WebPage => ({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    description: collapseWhitespace(`
+			We were unable to process your media inquiry form submission
+			because the email address submitted was invalid. Please provide
+			a valid email address and resubmit the form. We can do nothing
+			until a valid email address is submitted.
+		`),
+    version,
+  }),
+  label: "Media inquiry form invalid email",
+  next: "/media",
+  pageTitle: "Media inquiry form invalid email",
+  robots: "noindex",
+  title: getFormTitle("Media inquiry form", "Invalid email"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+  <Article id="main-content">
+    <header class="article-header">
+      <h1>Uh, oh</h1>
+    </header>
+    <p><mark>We found a problem with your email address.</mark></p>
+    <p>
+      Our server found an email address in your form submission. But <strong
+        >the submitted address appears to be invalid</strong
+      >. If you want a reply from us, we{apos}re gonna need a valid email
+      address to which to send our response.
+    </p>
+    <p>
+      Our stubborn server refused to accept an invalid email address.
+      <strong>We did not receive your message.</strong>
+    </p>
+    <p>
+      This is an automated process: <strong
+        >no human has seen your submission yet.</strong
+      >
+    </p>
+    <Figure caption="Oops.">
+      <img
+        alt=""
+        height="360"
+        src="/images/forms/invalid-email.svg"
+        style="margin: auto"
+        width="360"
+      />
+    </Figure>
+    <p>
+      Please use your browser{apos}s <strong>back button</strong> to return to
+      the <strong>media inquiry form.</strong> Edit your email address, then
+      re-submit the form.
+    </p>
+    <p>
+      Or try again later. If it is urgent, then please send an email to <CoderEmail
+        domain="scratchcode.academy"
+        emailAddress="coder"
+        subject={getSubject(metadata.title)}
+      /> or try our <a href="/feedback">feedback form</a>.
+    </p>
+    <p>
+      If you do email us, then please put <strong
+        >{getSubject(metadata.title)}</strong
+      > in the subject line.
+    </p>
+    <p>
+      We do want to hear from you, so we hope we can get this straightened out.
+      If we have somehow screwed this up or there is something that we could do
+      better, then please do let us know.
+    </p>
+    <p>
+      But please don{apos}t give up! <strong
+        >We want to reach as many craft coders as possible</strong
+      > to provide support and to let them know that they are <em>not alone</em
+      >. Publicity is essential.
+    </p>
+  </Article>
+</Layout>

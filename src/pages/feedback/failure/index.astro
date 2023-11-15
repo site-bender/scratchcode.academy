@@ -1,0 +1,102 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import CoderEmail from "~components/CoderEmail/index.astro";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import { getSubject } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfeedbackfailure",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/1SOXuox116yR6YdcL6MVuMsL",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-feedback-failure/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Sadly, there was a problem with our server. We cannot process
+			your feedback form submission at this time. Please try again
+			later or send us an email at coder at scratchcode.academy.
+		`),
+		version,
+	}),
+	label: "Feedback form failure",
+	next: "/feedback",
+	pageTitle: "Feedback form failure  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Feedback form", "Form failure"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Ack!</h1>
+		</header>
+		<p>
+			Our form-handling software seems to have fallen right over. We logged the
+			problem, and will look into it ASAP! Our apologies for the trouble.
+		</p>
+		<p>
+			<strong>To be clear: <mark>your feedback was not received</mark>.</strong>
+		</p>
+		<p>
+			This is an automated process: <strong
+				>no human has seen your submission yet.</strong
+			>
+		</p>
+		<Figure
+			caption={`<a href="https://www.urbandictionary.com/define.php?term=she%27s%20no%20fun,%20she%20fell%20right%20over" rel="external">${CHARS.ldquo}She${CHARS.apostrophe}s no fun! She fell right over!${CHARS.rdquo}</a>`}
+		>
+			<img
+				alt=""
+				height="360"
+				src="/images/forms/failure.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			You might use your browser{apos}s <strong>back button</strong> to return
+			to the <strong>feedback form</strong> where you can try again.
+		</p>
+		<p>
+			Or try again later. Please send an email to <CoderEmail
+				domain="scratchcode.academy"
+				emailAddress="coder"
+				subject={getSubject(metadata.title)}
+			/> if your issue is urgent.
+		</p>
+		<p>
+			If you do email us, then please put <strong
+				>{getSubject(metadata.title)}</strong
+			> in the subject line.
+		</p>
+		<p>
+			We are very sorry for this hassle and will try to correct the problem
+			ASAP. <strong>But please do keep trying.</strong> We can{apos}t fix bugs
+			or implement new ideas if we don{apos}t know about them.
+		</p>
+		<p>Thank you, as well, for your effort to help.</p>
+	</Article>
+</Layout>

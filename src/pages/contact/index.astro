@@ -1,0 +1,125 @@
+---
+import { CHARS } from "~constants";
+import {
+	Article,
+	BooleanField,
+	Button,
+	ButtonBar,
+	EmailField,
+	Fieldset,
+	Form,
+	Honeypot,
+	StringField,
+} from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/contact";
+
+const { apostrophe: apos, md } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academycontact",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/HspL7NuDnBzNZWbWBgFuk6Ax",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-contact/",
+			percentage: 99,
+		},
+	},
+	...getters,
+	keywords: [
+		"craft code",
+		"scratchcode.academy",
+		"comments",
+		"contact",
+		"complaints",
+		"suggestions",
+		"rants",
+		"message",
+	],
+	label: "Contact us",
+	next: "/faqs",
+	pageTitle: "Contact our community ~ ScratchCode",
+	prev: "/about",
+	title: "Contact us",
+};
+
+const { title } = metadata;
+---
+
+<Layout {metadata} noSubscribe {title}>
+	<Article id="main-content" {title}>
+		<p>
+			We{apos}d love to hear from you. Comments, complaints, suggestions, wild
+			rants{md}all welcome. Please use the form below.
+		</p>
+		<p>
+			Our ability to respond depends on the quantity of communications we
+			receive. We will do our best to get back to everyone.
+		</p>
+		<Form
+			action="/api/contact"
+			method="post"
+			name="contactForm"
+			validation="default"
+		>
+			{
+				({ form }: { form: string }) => (
+					<>
+						<Fieldset label="Talk to us">
+							<StringField
+								cols={48}
+								{form}
+								label="Compose your message"
+								message="We read them all and respond when we can."
+								name="message"
+								required
+								rows={8}
+								value=""
+							/>
+							<EmailField
+								{form}
+								label="Provide your email address"
+								message={`We can${CHARS.apostrophe}t respond without one.`}
+								name="emailAddress"
+								required
+								size={32}
+								value=""
+							/>
+							<StringField
+								{form}
+								label="Add your name"
+								message={`So we don${CHARS.apostrophe}t call you ${CHARS.ldquo}buddy${CHARS.rdquo} ${CHARS.ellipsis}`}
+								name="name"
+								size={32}
+								value=""
+							/>
+							<BooleanField
+								{form}
+								label="Notify me when you publish new material."
+								name="wantsUpdates"
+								value="yes"
+							/>
+						</Fieldset>
+						<ButtonBar {form}>
+							<Button {form} type="submit">
+								Send your message
+							</Button>
+						</ButtonBar>
+						<Honeypot {form} password="samizdat" />
+					</>
+				)
+			}
+		</Form>
+	</Article>
+</Layout>

@@ -1,0 +1,134 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryb",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/EPkBH3wVLiYeK7Pz2sta4OwF",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-b/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		B is for bespoke: the glossary page for terms beginning with
+		B for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"definition",
+		"bespoke code",
+		"boilerplate",
+		"bot",
+		"bottleneck",
+		"browser",
+	],
+	label: "B is for bespoke",
+	next: "/glossary/c",
+	pageTitle: "B is for bespoke ~ ScratchCode glossary",
+	prev: "/glossary/a",
+	title: "B is for bespoke",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="bespoke-code"><dfn>bespoke code</dfn></dt><dd>
+				<strong>Bespoke code</strong> is code that is made by hand for a
+				specific purpose. It is often re-usable, but it is generally not
+				highly-abstracted. Compare with
+
+				<a href="/glossary/c#commodity-code" rel="glossary">commodity code</a>.
+			</dd>
+			<dt id="boilerplate-code"><dfn>boilerplate code</dfn></dt><dd>
+				In computer programming, <strong>boilerplate code</strong>, or simply
+				boilerplate, are sections of code that are repeated in multiple places
+				with little to no variation. When using languages that are considered
+				verbose, the programmer must write a lot of boilerplate code to
+				accomplish only minor functionality.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Boilerplate_code"
+						rel="external">Boilerplate code</a
+					></cite
+				>
+			</dd>
+			<dt id="bot"><dfn>bot</dfn></dt><dd>
+				An Internet <strong>bot</strong>, web robot, robot or simply bot (an
+				abbreviation of robot), is a software application that runs automated
+				tasks (scripts) on the Internet, usually with the intent to imitate
+				human activity, such as messaging, on a large scale.
+			</dd><dd>
+				An Internet bot plays the <a href="/glossary/c#client" rel="glossary"
+					>client</a
+				>
+				 role in a
+				<a href="/glossary/c#client-server" rel="glossary"
+					>client-server model</a
+				>
+				 whereas the
+				<a href="/glossary/s#server" rel="glossary">server</a> role is usually
+				played by web servers.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Internet_bot"
+						rel="external">Internet bot</a
+					></cite
+				>
+			</dd>
+			<dt id="bottleneck"><dfn>bottleneck</dfn></dt><dd>
+				In software engineering, a <strong>bottleneck</strong> occurs when the
+				capacity of an application or a computer system is limited by a single
+				component, like the neck of a bottle slowing down the overall water
+				flow. The bottleneck has the lowest throughput of all parts of the
+				transaction path.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Bottleneck_(software)"
+						rel="external">Bottleneck (software)</a
+					></cite
+				>
+			</dd>
+			<dt id="browser"><dfn>browser</dfn></dt><dd>
+				A Web browser or <strong>browser</strong> is a program that retrieves
+				and displays pages from the
+				<a href="/glossary/w#www" rel="glossary">Web</a>, and lets users access
+				further pages through
+				<a href="/glossary/h#hyperlink" rel="glossary">hyperlinks</a>. A browser
+				is the most familiar type of <a
+					href="/glossary/u#user-agent"
+					rel="glossary">user agent</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/Browser"
+						rel="external">Browser</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

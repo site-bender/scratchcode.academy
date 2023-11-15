@@ -1,0 +1,231 @@
+---
+import {
+	Body,
+	CarbonCheck,
+	CCLicense,
+	Favicon,
+	Footer,
+	Head,
+	Header,
+	Html,
+	Logotype,
+	Main,
+	Menu,
+	MenuToggle,
+	MenuToggleScript,
+	Nav,
+	OpenGraph,
+	PrintDetailsScript,
+	QRCode,
+	SkipLink,
+	Social,
+	Trail,
+	Twitter,
+	ValidationScript,
+	createPageLookup,
+	createLinks,
+	sortByPath,
+} from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import baseCss from "@sitebender/components/@stylesheets/base?raw";
+import themeCss from "@sitebender/components/@stylesheets/theme?raw";
+import Symbol from "~components/Symbol/index.astro";
+import localCss from "~layouts/styles/local.css?raw";
+import type { AstroPage, MetaPage } from "~types";
+import { SITE_NAME } from "~constants";
+import getWebSiteData from "~metadata/webSite";
+import { FileData } from "@sitebender/components/src/components/metadata/Favicon/index.astro";
+
+export type Props = {
+	metadata: Partial<PageMeta>;
+	noShare?: boolean | undefined | null;
+	noSubscribe?: boolean | undefined | null;
+	title?: string | undefined | null;
+};
+
+const {
+	metadata = {} as Partial<PageMeta>,
+	noShare,
+	noSubscribe,
+} = Astro.props;
+
+const files = (await Astro.glob("../../public/*")) as Array<FileData>;
+
+const version = import.meta.env.npm_package_version;
+
+const article = metadata.getArticleData
+	? metadata.getArticleData(version)
+	: undefined;
+const codeSnippet = metadata.getCodeSnippetData
+	? metadata.getCodeSnippetData()
+	: undefined;
+const openGraph = metadata.getOpenGraphData
+	? metadata.getOpenGraphData()
+	: undefined;
+const quotations = metadata.getQuotations
+	? metadata.getQuotations()
+	: undefined;
+const twitter = metadata.getTwitterCard ? metadata.getTwitterCard() : undefined;
+const webPage = metadata.getWebPageData
+	? metadata.getWebPageData(version)
+	: undefined;
+const webSite = getWebSiteData(version);
+
+const description =
+	webPage?.description || article?.description || metadata.description;
+const { keywords } = metadata;
+
+const prefix = "og: https://ogp.me/ns#";
+
+const pages = (
+	(await Astro.glob("../pages/**/index.astro")) as Array<AstroPage>
+)
+	.filter((page) => {
+		const path = page.url?.split("/")?.slice(1) || "";
+
+		return (
+			page.url?.slice(0, 2) !== "/_" &&
+			page.metadata?.robots !== "noindex" &&
+			path[0] !== "test" &&
+			path[1]?.slice(0, 1) !== "_"
+		);
+	})
+	.map((page) => ({ ...page.metadata, path: page.url || "/" }) as MetaPage)
+	.sort(sortByPath);
+
+const pageLookup = createPageLookup(pages);
+
+const id = Astro.url.pathname.substring(1).replace(/\//g, "-") || "home";
+
+const paths = [
+	"/about",
+	"/contact",
+	// "/faqs",
+	// "/join",
+	"/cookie-policy",
+	"/diversity-policy",
+	"/privacy-policy",
+	"/terms-of-use",
+	"/feedback",
+];
+
+const canonicalSite = "https://scratchcode.academy";
+const links = createLinks(paths, pageLookup);
+const fallback = {};
+
+const content = await Astro.slots.render("default", [pages, pageLookup]);
+---
+
+<!doctype html>
+<Html {prefix}>
+	<Head
+		{canonicalSite}
+		{description}
+		{metadata}
+		siteTitle="ScratchCode: learn web development from scratch"
+	>
+		{keywords ? <meta name="keywords" content={keywords.join(",")} /> : null}
+		<meta name="publisher" content="ScratchCode" />
+		<meta name="color-scheme" content="light dark" />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: light)"
+			content="#fafafa"
+		/>
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#2c2c30"
+		/>
+		<Favicon {files} />
+		{openGraph ? <OpenGraph {openGraph} /> : null}
+		{twitter ? <Twitter {twitter} /> : null}
+		<link rel="me" href="https://x.com/CraftCodeDev" />
+		<link rel="glossary" href="https://scratchcode.academy/glossary" />
+		<style set:html={themeCss}></style>
+		<style set:html={baseCss}></style>
+		<style set:html={localCss}></style>
+		<slot name="head" />
+	</Head>
+	<Body>
+		<Header>
+			<Logotype ariaLabel={`To the ${SITE_NAME} home page`} href="/">
+				{SITE_NAME}
+			</Logotype>
+			<div><SkipLink /></div>
+			<div><SkipLink href="#footer" label="Skip to footer" /></div>
+			<Trail pages={pageLookup} {fallback} />
+		</Header>
+		<Main>
+			{
+				noShare ? null : (
+					<Social
+						orientation="vertical"
+						position="top-right"
+						title={metadata.pageTitle}
+					/>
+				)
+			}
+			<Fragment set:html={content} />
+			<!-- Add more here -->
+			<QRCode {canonicalSite} />
+		</Main>
+		<Footer id="footer">
+			<div>
+				<Nav {links} />
+				<p>WCAG 2.2 AAA</p>
+			</div>
+			<div>
+				<Logotype as="div" noLink slot="logo">
+					<Symbol slot="image" />
+					{SITE_NAME}
+				</Logotype>
+				<CCLicense byAttribution nonCommercial shareAlike />
+			</div>
+		</Footer>
+		<ValidationScript />
+		<MenuToggleScript />
+		<PrintDetailsScript />
+		{
+			webSite ? (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(webSite, null, 2)}
+				/>
+			) : null
+		}
+		{
+			codeSnippet ? (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(codeSnippet, null, 2)}
+				/>
+			) : null
+		}
+		{
+			webPage ? (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(webPage, null, 2)}
+				/>
+			) : null
+		}
+		{
+			article ? (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(article, null, 2)}
+				/>
+			) : null
+		}
+		{
+			quotations?.map((quotation) => (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(quotation, null, 2)}
+				/>
+			))
+		}
+		<slot name="tail" />
+	</Body>
+</Html>

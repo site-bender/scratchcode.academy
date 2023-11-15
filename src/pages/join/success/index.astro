@@ -1,0 +1,108 @@
+---
+import { Article, Figure } from "@sitebender/components";
+import { CHARS } from "~constants";
+import Layout from "~layouts/index.astro";
+import { getFormTitle } from "@sitebender/components";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { WebPage } from "@sitebender/components/src/types/schema.org";
+import { collapseWhitespace } from "@sitebender/components";
+
+const { apostrophe: apos, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyjoinsuccess",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/iMHSeMP5FJJwPdvmW2ER2pDy",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-join-success/",
+			percentage: 99,
+		},
+	},
+	getWebPageData: (version: string): WebPage => ({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		description: collapseWhitespace(`
+			Success! Your request to join craft code has been forwarded
+			to us. We will get right on it! Can${CHARS.apostrophe}t wait
+			to have on board.
+		`),
+		version,
+	}),
+	label: "Join us form success",
+	next: "/join",
+	pageTitle: "Join us form success  ~ ScratchCode",
+	robots: "noindex",
+	title: getFormTitle("Join us form", "Success"),
+};
+---
+
+<Layout metadata={metadata} noSubscribe title={metadata.title}>
+	<Article id="main-content">
+		<header class="article-header">
+			<h1>Success!</h1>
+		</header>
+		<p>
+			Our server sent your request for recognition as a <strong
+				>ScratchCoder</strong
+			> to us at <a href="https://scratchcode.academy/">craft code</a>. That{
+				apos
+			}
+			 outstanding! Thank you for helping to build the community.
+		</p>
+		<p>
+			Please click on the <strong>confirm</strong> button in the <mark
+				>confirmation email.</mark
+			> You should receive one shortly. This step is necessary to complete your
+			enrollment.
+		</p>
+		<Figure caption="Everyone loves connection.">
+			<img
+				alt=""
+				height="360"
+				src="/images/iconic/make-intentions-clear.svg"
+				style="margin: auto"
+				width="360"
+			/>
+		</Figure>
+		<p>
+			Thanks much for your support! We will create <strong
+				>a community of craft coders</strong
+			> as our rolls grow. Stay tuned. There is so much more to come.
+		</p>
+		<p>
+			If your request to join expects a personal response, then we will do our
+			best to provide one. Of course, we will ignore spam, trolls, abuse, etc.,
+			and will ban offending email addresses. Who has time for that nonsense?
+		</p>
+		<p>
+			Did you the box to <strong>sign up for notifications?</strong> If so, then
+			we have added your email address to our notifications list. We will notify
+			whenever you new content appears on the <a
+				href="https://scratchcode.academy/">ScratchCode</a
+			> site. Nice!
+		</p>
+		<p>
+			If you asked us to notify you, then you should receive a <mark
+				>second confirmation email</mark
+			>. Check your spam bin. You must click on the {ldquo}confirm{rdquo}
+			 button in that email as well to confirm that you want us to notify you of
+			updates to the site. If you do not, then we will not notify you. Promise.
+		</p>
+		<p>
+			Two confirmations? Annoying, indeed. We are sorry to have to do it. But <strong
+				>wow</strong
+			> do people get angry when you send them, even by mistake, unsolicited
+			email. We play it safe.
+		</p>
+	</Article>
+</Layout>

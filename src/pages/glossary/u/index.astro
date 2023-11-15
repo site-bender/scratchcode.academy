@@ -1,0 +1,176 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryu",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/MIOgybLbHbyViGm57LwCfQRZ",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-u/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		U is for UX: the glossary page for terms beginning with
+		U for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"universal design",
+		"user agent",
+		"UX",
+		"UI",
+	],
+	label: "U is for user experience",
+	next: "/glossary/v",
+	pageTitle: "U is for user experience ~ ScratchCode glossary",
+	prev: "/glossary/t",
+	title: "U is for user experience",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="universal-design"><dfn>universal design</dfn></dt><dd>
+				<strong>Universal design</strong> is the design of buildings, products
+				or environments to make them accessible to people, regardless of age,
+				disability or other factors. It addresses common barriers to
+				participation by creating things that can be used by the maximum number
+				of people possible.
+			</dd><dd>
+				In recent years, universal design principles have found their way to the
+
+
+				<a href="/glossary/w#www" rel="glossary">Web</a> where numerous web
+				developers have begun to apply them to the design of <a
+					href="/glossary/w#web-app"
+					rel="glossary">web applications</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Universal_design"
+						rel="external">Universal design</a
+					></cite
+				>
+			</dd>
+			<dt id="user-agent"><dfn>user agent</dfn></dt><dd>
+				A <strong>user agent</strong> is a computer program representing a
+				person, for example, a <a href="/glossary/b#browser" rel="glossary"
+					>browser</a
+				> in a Web context.
+			</dd><dd>
+				Besides a browser, a user agent could be a <a
+					href="/glossary/b#bot"
+					rel="glossary">bot</a
+				>
+				 scraping webpages, a download manager, or another app accessing the
+				Web. Along with each request they make to the server, browsers include a
+				self-identifying User-Agent <a
+					href="/glossary/h#http"
+					rel="glossary"
+					title="HyperText Transfer Protocol">HTTP</a
+				>{" "}
+				<a href="/glossary/h#header" rel="glossary">header</a> called a user
+				agent (UA) string [of characters]. This string often identifies the
+				browser, its version number, and its host operating system.
+			</dd><dd>For example:</dd><dd>
+				<code
+					>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36</code
+				>
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/User_agent"
+						rel="external">User agent</a
+					></cite
+				>
+			</dd>
+			<dt id="user-agent-stylesheet"><dfn>user agent stylesheet</dfn></dt><dd>
+				A user agent stylesheet is a pre-defined set of <a
+					href="/glossary/c#css"
+					rel="glossary">CSS</a
+				> rules that are built into a web browser and applied to web pages
+				automatically. The purpose of the user agent stylesheet is to provide a
+				consistent and standardized visual rendering of <a
+					href="/glossary/h#html"
+					rel="glossary">HTML</a
+				> elements across different web pages and websites. The rules in the
+				user agent stylesheet define how HTML elements should be displayed by
+				default, including things like font size, color, spacing, and alignment.
+			</dd><dd>
+				Check out also <a
+					href="https://browserdefaultstyles.com/"
+					rel="external">Browser Default Styles</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://www.geeksforgeeks.org/what-is-a-user-agent-stylesheet/"
+						rel="external">What is a User Agent Stylesheet?</a
+					></cite
+				>
+			</dd>
+			<dt id="ux">
+				<dfn>User Experience</dfn> (<abbr title="user experience">UX</abbr>)
+			</dt><dd>
+				<strong>User Experience</strong> (UX) is how a user interacts with and
+				experiences a product, system or service. It includes a personʼs
+				perceptions of utility, ease of use, and efficiency.
+			</dd><dd>
+				Improving user experience is important to most companies, designers, and
+				creators when creating and refining products because negative user
+				experience can diminish the use of the product and, therefore, any
+				desired positive impacts; conversely, designing toward profitability
+				often conflicts with ethical user experience objectives and even causes
+				harm.
+			</dd><dd>
+				User experience is subjective. However, the attributes that make up the
+				user experience are objective.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/User_experience"
+						rel="external">User experience</a
+					></cite
+				>
+			</dd>
+			<dt id="ui">
+				<dfn>User Interface</dfn> (<abbr title="user interface">UI</abbr>)
+			</dt><dd>
+				<strong>User Interface</strong> (UI) is anything that facilitates the
+				interaction between a user and a machine. In the world of computers, it
+				can be anything from a keyboard, a joystick, a screen or a program. In
+				case of computer software, it can be a command-line prompt, a webpage, a
+				user input form, or the front-end of any application.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/UI"
+						rel="external">UI</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

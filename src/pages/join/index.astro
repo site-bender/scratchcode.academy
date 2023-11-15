@@ -1,0 +1,170 @@
+---
+import { CHARS } from "~constants";
+import {
+  Article,
+  BooleanField,
+  Button,
+  ButtonBar,
+  EmailField,
+  Form,
+  Fieldset,
+  Honeypot,
+  StringField,
+  UrlField,
+} from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/join";
+
+const { apostrophe: apos, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  author: "Charles F. Munat, coder@scratchcode.academy",
+  carbon: {
+    beacon: {
+      href: "https://digitalbeacon.co/report/scratchcode-academyjoin",
+      firstCarbon: 0.011,
+      grade: "A+",
+      repeatCarbon: 0.006,
+    },
+    ecograder: {
+      href: "https://ecograder.com/report/36tB5Ol7BILR6D7QeKJPZUSp",
+      score: 83,
+    },
+    webCarbon: {
+      count: 0.01,
+      href: "https://www.websitecarbon.com/website/scratchcode-academy-join/",
+      percentage: 99,
+    },
+  },
+  ...getters,
+  keywords: [
+    "craft code",
+    "join us",
+    "join",
+    "subscribe",
+    "ScratchCode manifesto",
+    "manifesto",
+    "notify",
+    "articles",
+  ],
+  label: "Join us!",
+  next: "/feedback",
+  pageTitle: "Join our community ~ ScratchCode",
+  prev: "/faqs",
+  title: "Join the ScratchCode community",
+};
+
+const { title } = metadata;
+---
+
+<Layout {metadata} noSubscribe {title}>
+  <Article id="main-content" {title}>
+    <p>
+      We welcome like-minded souls to the ScratchCode community. To be a craft
+      coder, all you need to do is to adhere to the ScratchCode{apos}s Axioms
+      and Methods.
+    </p>
+    <p>
+      Agree with our axioms? Follow our methods? Then you are a ScratchCoder
+      whether you realize it or not. And if you do not agree, then you are <em
+        >not</em
+      > a ScratchCoder no matter what claim you make.
+    </p>
+    <p>
+      In short, ScratchCode is not some kind of club: it is a <strong
+        >definition</strong
+      >. You either meet it, or you don{apos}t.
+    </p>
+    <p>
+      That said, you may wish to take it a bit further by letting others know
+      that you support craft coding. With the form below, you may take any or
+      all the following steps:
+    </p>
+    <ul>
+      <li>Subscribe to our occasional newsletter.</li>
+      <li>Ask us to notify you when we publish updates to this site.</li>
+      <li>
+        Have your name included on our [coming soon] ScratchCoder manifesto
+        page. Show your support for the ScratchCode way.
+      </li>
+      <li>
+        Offer to take a more hand-on role. This might be by helping to maintain
+        this site. Or by writing articles. Ideas welcome. Let us know in the {
+          ldquo
+        }About you{rdquo} field below.
+      </li>
+    </ul>
+    <p>Choose the appropriate checkbox or checkboxes below.</p>
+    <Form action="/api/join" method="post" name="joinForm">
+      {
+        ({ form }: { form: string }) => (
+          <>
+            <Fieldset label="Support ScratchCode">
+              <EmailField
+                {form}
+                message="We need to be able to reach you."
+                label="Your email address"
+                name="emailAddress"
+                required
+                size={32}
+                value=""
+              />
+              <StringField
+                {form}
+                message="How do you prefer that we address you?"
+                label="Your name"
+                name="name"
+                required
+                size={32}
+                value=""
+              />
+              <StringField
+                cols={48}
+                {form}
+                message="Tell us about yourself."
+                label="About you"
+                name="bio"
+                rows={8}
+                value=""
+              />
+              <UrlField
+                {form}
+                message="Starts with https:// or http://"
+                label="Your website"
+                name="url"
+                pattern="^https?//.+"
+                size={32}
+                value=""
+              />
+              <BooleanField
+                {form}
+                label="Notify me when you publish new articles."
+                name="wantsUpdates"
+                value="yes"
+              />
+              <BooleanField
+                {form}
+                label="List me on the ScratchCoders page."
+                name="wantsRecognition"
+                value="yes"
+              />
+              <BooleanField
+                {form}
+                label="I want to help with the ScratchCode effort."
+                name="wantsToJoin"
+                value="yes"
+              />
+            </Fieldset>
+            <ButtonBar {form}>
+              <Button {form} type="submit">
+                Join us
+              </Button>
+            </ButtonBar>
+            <Honeypot {form} />
+          </>
+        )
+      }
+    </Form>
+  </Article>
+</Layout>

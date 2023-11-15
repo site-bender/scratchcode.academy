@@ -1,0 +1,75 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos, ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryk",
+			firstCarbon: 0.01,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/1O2ZNtFAFkKxMjOWpk665rLl",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-k/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		K is for KISS: the glossary page for terms beginning with
+		K for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: ["craft code", "glossary", "keep it simple stupid"],
+	label: "K is for KISS",
+	next: "/glossary/l",
+	pageTitle: "K is for KISS ~ ScratchCode glossary",
+	prev: "/glossary/j",
+	title: "K is for KISS",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="kiss">
+				<dfn>Keep It Simple, Stupid</dfn> (<abbr title="keep it simple, stupid"
+					>KISS</abbr
+				>)
+			</dt><dd>
+				<strong>KISS</strong>, an acronym for {ldquo}Keep it simple, stupid{
+					rdquo
+				}, is a design principle first noted by the U.S. Navy in 1960.
+			</dd><dd>
+				The KISS principle states that most systems work best if they are kept
+				simple rather than made complicated; therefore, simplicity should be a
+				key goal in design, and unnecessary complexity should be avoided.
+			</dd><dd>
+				See also <a href="/glossary/o#occams-razor" rel="glossary"
+					>Occam{apos}s Razor</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/KISS_principle"
+						rel="external">KISS principle</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

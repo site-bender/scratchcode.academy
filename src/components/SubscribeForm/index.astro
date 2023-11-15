@@ -1,0 +1,50 @@
+---
+import {
+  Button,
+  ButtonBar,
+  EmailField,
+  Fieldset,
+  Form,
+  HiddenInput,
+  Honeypot,
+  generateShortId,
+} from "@sitebender/components";
+
+const password = process.env.HONEYPOT_PASSWORD;
+const confirmation = process.env.HONEYPOT_CONFIRMATION;
+
+const legendId = generateShortId();
+---
+
+<Form
+  aria-labelledby={legendId}
+  class:list={["sb-form", "sb-subscribe-form"]}
+  action="/api/subscribe"
+  method="post"
+  name="subscribeForm"
+>
+  {
+    ({ form }: { form: string }) => (
+      <>
+        <Fieldset label="Get notified of site updates" {legendId}>
+          <HiddenInput {form} name="wantsUpdates" value="yes" />
+          <EmailField
+            {form}
+            label="Your email address"
+            message="Where you want notifications sent."
+            name="emailAddress"
+            required
+            size={32}
+            value=""
+          />
+        </Fieldset>
+        <ButtonBar {form}>
+          <Button {form} type="submit">
+            Get notified
+          </Button>
+        </ButtonBar>
+        <Honeypot {confirmation} {form} {password} />
+      </>
+    )
+  }
+</Form>

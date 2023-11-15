@@ -1,0 +1,139 @@
+---
+import { CHARS } from "~constants";
+import {
+	Article,
+	Button,
+	ButtonBar,
+	EmailField,
+	Fieldset,
+	Faqs,
+	Form,
+	Honeypot,
+	StringField,
+	TimeToRead,
+} from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import * as getters from "~metadata/webPages/faqs";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyfaqs",
+			firstCarbon: 0.012,
+			grade: "A+",
+			repeatCarbon: 0.008,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/DrXsddSMmpgVMK8D3qrEwESL",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-faqs/",
+			percentage: 99,
+		},
+	},
+	...getters,
+	keywords: [
+		"craft code",
+		"frequently-asked question",
+		"FAQ",
+		"murder your darlings",
+		"nerd",
+		"market",
+		"web app",
+		"web application",
+		"Munat",
+		"exitprise",
+		"vanilla code",
+		"technophilia",
+		"appeal to authority",
+	],
+	label: "FAQs",
+	next: "/join",
+	pageTitle: "Frequently-asked questions ~ ScratchCode",
+	prev: "/contact",
+	title: "Frequently-asked questions",
+};
+
+const { getArticleData, title } = metadata;
+const article = getArticleData ? getArticleData("") : undefined;
+
+const faqs = [
+	await import("~faqs/Clever/index.astro"),
+	await import("~faqs/Nerds/index.astro"),
+	await import("~faqs/Market/index.astro"),
+	await import("~faqs/Behind/index.astro"),
+	await import("~faqs/Support/index.astro"),
+	await import("~faqs/Join/index.astro"),
+	await import("~faqs/Quotations/index.astro"),
+];
+---
+
+<Layout {metadata} noSubscribe {title}>
+	<Article id="main-content" {title}>
+		<TimeToRead {article} />
+		<p>
+			So many questions! Here we attempt to answer a few of the more common
+			ones. Select a question below to see the response.
+		</p>
+		<Faqs>
+			{faqs.map(({ default: Elem }) => <Elem />)}
+		</Faqs>
+		<section>
+			<header>
+				<h2 id="you-can-contribute">You can contribute!</h2>
+			</header>
+			<p>
+				Got a question? Send it to us and we{apos}ll try to answer it. Trolls
+				will be roundly ignored.
+			</p>
+			<Form action="/api/faq" method="post" name="faqForm">
+				{
+					({ form }: { form: string }) => (
+						<>
+							<Fieldset label="Ask a question">
+								<StringField
+									{form}
+									message="You may ask multiple questions if you like."
+									label="Ask your question(s)"
+									name="question"
+									cols={48}
+									required
+									rows={8}
+									value=""
+								/>
+								<EmailField
+									{form}
+									message={`If you would like a personal response ${CHARS.ellipsis}`}
+									label="Add your email address"
+									name="emailAddress"
+									size={32}
+									value=""
+								/>
+								<StringField
+									{form}
+									message="What would you like us to call you?"
+									label="Add your name"
+									name="name"
+									size={32}
+									value=""
+								/>
+							</Fieldset>
+							<ButtonBar {form}>
+								<Button {form} type="submit">
+									Ask your question(s)
+								</Button>
+							</ButtonBar>
+							<Honeypot {form} />
+						</>
+					)
+				}
+			</Form>
+		</section>
+	</Article>
+</Layout>

@@ -1,0 +1,18 @@
+---
+export type Props = {
+	emailAddress: string;
+	domain: string;
+	label?: string | undefined | null;
+	subject?: string | undefined | null;
+};
+
+const { emailAddress, domain, label, subject } = Astro.props;
+
+const subj = subject ? `?subject=${subject}` : "";
+---
+
+<span
+	><a href={`mailto:${emailAddress}%40${domain}${subj}`}
+		>{emailAddress || label}</a
+	> at scratchcode.academy
+</span>

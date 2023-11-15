@@ -1,0 +1,174 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryh",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.006,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/knZE5GEiUHWZ4E0zpYGb9UZH",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-h/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		H is for hypertext: the glossary page for terms beginning with
+		H for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"hyperlink",
+		"hypermedia",
+		"hypertext",
+		"HTML",
+		"HTTP",
+		"HTTP headers",
+	],
+	label: "H is for hypertext",
+	next: "/glossary/i",
+	pageTitle: "H is for hypertext ~ ScratchCode glossary",
+	prev: "/glossary/g",
+	title: "H is for hypertext",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="hyperlink"><dfn>hyperlink</dfn></dt><dd>
+				<strong>Hyperlinks</strong> connect webpages or data items to one
+				another. In <a href="/glossary/h#html" rel="glossary">HTML</a>, <code
+					>&lt;a&gt;</code
+				> elements define hyperlinks from a spot on a webpage (like a text
+				string or image) to another spot on some other webpage (or even on the
+				same page).
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Hyperlink"
+						rel="external">Hyperlink</a
+					></cite
+				>
+			</dd>
+			<dt id="hypermedia"><dfn>hypermedia</dfn></dt><dd>
+				<strong>Hypermedia</strong>, an extension of the term <a
+					href="/glossary/h#hypertext"
+					rel="glossary">hypertext</a
+				>, is a nonlinear medium of information that includes graphics, audio,
+				video, plain text and <a href="/glossary/h#hyperlink" rel="glossary"
+					>hyperlinks</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Hypermedia"
+						rel="external">Hypermedia</a
+					></cite
+				>
+			</dd>
+			<dt id="hypertext"><dfn>hypertext</dfn></dt><dd>
+				<strong>Hypertext</strong> is text that contains links to other texts,
+				as opposed to a single linear flow like in a novel.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/Hypertext"
+						rel="external">Hypertext</a
+					></cite
+				>
+			</dd>
+			<dt id="html">
+				<dfn>HyperText Markup Language</dfn> (<abbr
+					title="HyperText Markup Language">HTML</abbr
+				>)
+			</dt><dd>
+				<strong>HTML</strong> (HyperText Markup Language) is a descriptive
+				language that specifies webpage <strong>structure</strong>.
+			</dd><dd>Example:</dd><dd>
+				<code
+					>&lt;p&gt;<br />&nbsp;&nbsp;This is a paragraph of text with
+					<br />&nbsp;&nbsp;&lt;strong&gt;some words strongly
+					emphasized&lt;/strong&gt;.<br />&lt;/p&gt;</code
+				>
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/HTML"
+						rel="external">HyperText Markup Language</a
+					></cite
+				>
+			</dd>
+			<dt id="http">
+				<dfn>HyperText Transfer Protocol</dfn> (<abbr
+					title="HyperText Transfer Protocol">HTTP</abbr
+				>)
+			</dt><dd>
+				The <strong>HyperText Transfer Protocol</strong> (HTTP) is the
+				underlying network protocol that enables transfer of <a
+					href="/glossary/h#hypermedia"
+					rel="glossary">hypermedia</a
+				> documents on the <a href="/glossary/w#www" rel="glossary">Web</a>,
+				typically between a
+				<a href="/glossary/b#browser" rel="glossary">browser</a> and a <a
+					href="/glossary/s#server"
+					rel="glossary">server</a
+				> so that humans can read them.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP"
+						rel="external">HTTP</a
+					></cite
+				>
+			</dd>
+			<dt id="header"><dfn>HTTP headers</dfn></dt><dd>
+				<strong>HTTP headers</strong> let the client and the server pass
+				additional information within an
+				<a href="/glossary/h#http" rel="glossary">HTTP</a> request or response.
+				An HTTP header consists of its case-insensitive name followed by a colon
+				(:), then by its value. Whitespace before the value is ignored.
+			</dd><dd>
+				Here is an example of <strong>HTTP request headers</strong>:
+			</dd><dd>
+				<code
+					>Accept: text/html;q=0.9,image/avif,image/webp,*/*;q=0.8<br />
+					 Accept-Encoding: gzip, deflate, br<br />
+					 Accept-Language: en-US,en;q=0.6<br /></code
+				>
+			</dd><dd>
+				And here is an example of <strong>HTTP response headers</strong>:
+			</dd><dd>
+				<code
+					>Cache-Control: public, max-age=3600<br />
+					 Date: Fri, 27 Oct 2023 05:59:47 GMT<br />
+					 Etag: W/"563c28a59273900c6f7b0cf6a79f0a6b"<br />
+					 Expires: Fri, 27 Oct 2023 06:59:47 GMT<br /></code
+				>
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers"
+						rel="external">HTTP headers</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

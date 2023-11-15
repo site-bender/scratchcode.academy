@@ -1,0 +1,46 @@
+.sb-glossinator ol {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	justify-content: flex-start;
+	margin: 0;
+	max-width: 656px;
+	padding: 0;
+}
+
+.sb-glossinator ol li {
+	align-items: center;
+	border: 1px solid var(--sb-color-green);
+	border-radius: 5px;
+	background-color: var(--sb-color-green-tinted);
+	box-sizing: border-box;
+	display: flex;
+	font-weight: bold;
+	min-height: 48px;
+	justify-content: center;
+	list-style-type: none;
+	min-width: 48px;
+}
+
+.sb-glossinator ol li a {
+	align-items: center;
+	background-color: var(--sb-color-gray-0);
+	display: flex;
+	font-weight: 400;
+	height: 48px;
+	justify-content: center;
+	text-decoration: none;
+	width: 48px;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+	.sb-glossinator ol li {
+		border: 1px solid var(--sb-color-green);
+		background-color: var(--sb-color-green-shaded);
+	}
+
+	.sb-glossinator ol li a {
+		background-color: var(--sb-color-gray-8);
+	}
+}

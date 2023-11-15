@@ -1,0 +1,249 @@
+---
+import { Article, collapseWhitespace } from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import Glossinator from "~components/Glossinator/index.astro";
+import type { PageMeta } from "@sitebender/components/src/types";
+import { CHARS } from "~constants";
+
+const { ldquo, rdquo } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+	author: "Charles F. Munat, coder@scratchcode.academy",
+	carbon: {
+		beacon: {
+			href: "https://digitalbeacon.co/report/scratchcode-academyglossaryt",
+			firstCarbon: 0.011,
+			grade: "A+",
+			repeatCarbon: 0.007,
+		},
+		ecograder: {
+			href: "https://ecograder.com/report/M2oQErSZiuxRHkp0GPT3LIzY",
+			score: 83,
+		},
+		webCarbon: {
+			count: 0.01,
+			href: "https://www.websitecarbon.com/website/scratchcode-academy-glossary-t/",
+			percentage: 99,
+		},
+	},
+	description: collapseWhitespace(`
+		T is for tree shaking: the glossary page for terms beginning with
+		T for the ScratchCode website. Craft code is code made with
+		skill and ingenuity.
+	`),
+	keywords: [
+		"craft code",
+		"glossary",
+		"technical debt",
+		"technophilia",
+		"technophobia",
+		"tight coupling",
+		"TCO",
+		"transpiler",
+		"tree of abstraction",
+		"tree shaking",
+		"TypeScript",
+	],
+	label: "T is for tree shaking",
+	next: "/glossary/u",
+	pageTitle: "T is for tree shaking ~ ScratchCode glossary",
+	prev: "/glossary/s",
+	title: "T is for tree shaking",
+};
+
+const { pageTitle, title } = metadata;
+---
+
+<Layout {metadata} title={pageTitle}>
+	<Article id="main-content" title={title}>
+		<Glossinator />
+		<dl class="sb-glossary">
+			<dt id="technical-debt"><dfn>technical debt</dfn></dt><dd>
+				In software development, or any other
+				<a
+					href="/glossary/i#information-technology"
+					rel="glossary"
+					title="Information Technology">IT</a
+				>
+				 field (e.g., Infrastructure, Networking, etc.), <strong
+					>technical debt</strong
+				> (also known as design debt or code debt) is the implied cost of future
+				reworking required when choosing an easy but limited solution instead of
+				a better [e.g., craft code] approach that could take more time.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Technical_debt"
+						rel="external">Technical debt</a
+					></cite
+				>
+			</dd>
+			<dt id="technophilia"><dfn>technophilia</dfn></dt><dd>
+				<strong>Technophilia</strong> refers generally to a strong attraction
+				for technology, especially new technologies such as personal computers,
+				the Internet, mobile phones, and home cinema. The term is used in
+				sociology to examine individualsʼ interactions with society and is
+				contrasted with <a href="/glossary/t#technophobia" rel="glossary"
+					>technophobia</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Technophilia"
+						rel="external">Technophilia</a
+					></cite
+				>
+			</dd>
+			<dt id="technophobia"><dfn>technophobia</dfn></dt><dd>
+				<strong>Technophobia</strong>, also known as technofear, is the fear or
+				dislike of advanced technology or complex devices, especially computers.
+				Although there are numerous interpretations of technophobia, they become
+				more complex as technology continues to evolve. The term is generally
+				used in the sense of an irrational fear, but others contend fears are
+				justified. It is the opposite of <a
+					href="/glossary/t#technophilia"
+					rel="glossary">technophilia</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Technophobia"
+						rel="external">Technophobia</a
+					></cite
+				>
+			</dd>
+			<dt id="tight-coupling"><dfn>tight coupling</dfn></dt><dd>
+				<strong>Tight coupling</strong> is a coupling technique in which
+				hardware and software components are highly dependent on each other. It
+				is used to refer to the state/intent of interconnectivity between two or
+				more computing instances in an integrated system.
+			</dd><dd>
+				See also <a href="/glossary/l#loose-coupling" rel="glossary"
+					>loose coupling</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://www.techopedia.com/definition/706/tight-coupling"
+						rel="external">Tight Coupling</a
+					></cite
+				>
+			</dd>
+			<dt id="tco">
+				<dfn>Total Cost of Ownership</dfn> (<abbr
+					title="total cost of ownership">TCO</abbr
+				>)
+			</dt><dd>
+				<strong>Total cost of ownership</strong> (TCO) is a financial estimate
+				intended to help buyers and owners determine the direct and indirect
+				costs of a product or service. It is a management accounting concept
+				that can be used in full cost accounting or even ecological economics
+				where it includes social costs.
+			</dd><dd>
+				See also <a href="/glossary/c#cognitive-footprint" rel="glossary"
+					>cognitive footprint</a
+				>.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Total_cost_of_ownership"
+						rel="external">Total cost of ownership</a
+					></cite
+				>
+			</dd>
+			<dt id="transpiler"><dfn>transpiler</dfn></dt><dd>
+				A source-to-source translator, source-to-source compiler (S2S compiler),
+				transcompiler, or
+				<strong>transpiler</strong> is a type of translator that takes the
+				source code of a program written in a programming language as its input
+				and produces an equivalent source code in the same or a different
+				programming language.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/Source-to-source_compiler"
+						rel="external">Source-to-source compiler</a
+					></cite
+				>
+			</dd>
+			<dt id="tree-of-abstraction"><dfn>tree of abstraction</dfn></dt><dd>
+				The <strong>tree of abstraction</strong> is a way of looking at
+				<a href="/glossary/a#abstraction" rel="glossary">abstraction</a>. It
+				envisions a {ldquo}tree{rdquo} (in the computing sense: think pyramid)
+				in which the bottom layer is actual, specific, <a
+					href="/glossary/f#fit-for-purpose"
+					rel="glossary">fit-for-purpose</a
+				> objects.
+			</dd><dd>
+				From this base layer of objects, a set of patterns emerges. These
+				patterns are used to {ldquo}abstract{rdquo} more generic instances of
+				the objects. These new abstracted objects can be used in place of
+				several objects on the level below.
+			</dd><dd>
+				From this new level, more patterns emerge, and a new layer of yet more
+				abstract objects is created. In this manner the {ldquo}tree of
+				abstraction{rdquo} grow from concrete objects at the bottom and
+				progressively more abstract objects as one moves up the tree.
+			</dd><dd>
+				<strong>ScratchCode</strong> recommends staying <a
+					href="/methods/use-the-least-power"
+					>as low on the tree of abstraction</a
+				> as practicable.
+			</dd>
+			<dt id="tree-shaking"><dfn>tree shaking</dfn></dt><dd>
+				<strong>Tree shaking</strong> is a term commonly used within a <a
+					href="/glossary/j#javascript"
+					rel="glossary">JavaScript</a
+				>
+				 context to describe the removal of dead code.
+			</dd><dd>
+				It relies on the import and export statements to detect if code modules
+				are exported and imported for use between JavaScript files.
+			</dd><dd>
+				In modern JavaScript applications, we use module bundlers (e.g., <a
+					href="https://webpack.js.org/"
+					rel="external">webpack</a
+				> or <a href="https://rollupjs.org/introduction/" rel="external"
+					>Rollup</a
+				>) to automatically remove dead code when bundling multiple JavaScript
+				files into single files. This is important for preparing code that is
+				production ready, for example with clean structures and minimal file
+				size.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking"
+						rel="external">Tree shaking</a
+					></cite
+				>
+			</dd>
+			<dt id="typescript">
+				<dfn>TypeScript</dfn> (<abbr title="TypeScript">TS</abbr>)
+			</dt><dd>
+				<strong>TypeScript</strong> is a free and open-source high-level
+				programming language developed by
+				<a href="https://www.typescriptlang.org/" rel="external">Microsoft</a>
+				 that adds
+				<a href="/glossary/s#static-typing" rel="glossary">static typing</a>
+				 with optional type annotations to <a
+					href="/glossary/j#javascript"
+					rel="glossary">JavaScript</a
+				>.
+			</dd><dd>
+				It is designed for the development of large applications and <a
+					href="/glossary/t#transpiler"
+					rel="glossary">transpiles</a
+				> to JavaScript. Because TypeScript is a superset of JavaScript, all
+				JavaScript programs are syntactically-valid TypeScript, but they can
+				fail to type-check for safety reasons.
+			</dd><dd>
+				<cite
+					>Source: <a
+						href="https://en.wikipedia.org/wiki/TypeScript"
+						rel="external">TypeScript</a
+					></cite
+				>
+			</dd>
+		</dl>
+	</Article>
+</Layout>

@@ -1,0 +1,95 @@
+---
+import {
+  Article,
+  BooleanField,
+  Button,
+  ButtonBar,
+  EmailField,
+  Fieldset,
+  Form,
+  Honeypot,
+  StringField,
+} from "@sitebender/components";
+import Layout from "~layouts/index.astro";
+import { CHARS } from "~constants";
+
+const { apostrophe: apos } = CHARS;
+
+export const metadata: Partial<PageMeta> = {
+  canonical: "https://scratchcode.academy/media/",
+  description: "The media kit page for Craft-Code.dev.",
+  title: "Media kit",
+  robots: "noindex",
+};
+---
+
+<Layout {metadata} noSubscribe title="Media kit">
+  <Article id="main-content" title="Media kit">
+    <p>
+      Want to know more about <strong>ScratchCode?</strong> We are eager to
+      help.
+    </p>
+    <p>
+      Here you will find our <strong>media kit,</strong> with everything you
+      might need. If we{apos}ve missed something, then please let us know.
+    </p>
+    <Form action="/api/media" method="post" name="mediaForm">
+      {
+        ({ form }: { form: string }) => (
+          <>
+            <Fieldset label="What do you need?">
+              <StringField
+                {form}
+                label="Provide your name"
+                message="The name under which you publish."
+                name="name"
+                required
+                size={32}
+                value=""
+              />
+              <EmailField
+                {form}
+                label="Add your email address"
+                message="So we can provide you with a personal response."
+                name="emailAddress"
+                required
+                size={32}
+                value=""
+              />
+              <StringField
+                cols={48}
+                {form}
+                label="Compose your inquiry"
+                message="We will do our best to answer."
+                name="inquiry"
+                required
+                rows={8}
+                value=""
+              />
+              <StringField
+                {form}
+                label="Include your organization"
+                message="What organization do you represent, if any?"
+                name="organization"
+                size={32}
+                value=""
+              />
+              <BooleanField
+                {form}
+                label="Please notify me when you publish new articles."
+                name="wantsUpdates"
+                value="yes"
+              />
+            </Fieldset>
+            <ButtonBar {form}>
+              <Button {form} type="submit">
+                Post your inquiry
+              </Button>
+            </ButtonBar>
+            <Honeypot {form} />
+          </>
+        )
+      }
+    </Form>
+  </Article>
+</Layout>
